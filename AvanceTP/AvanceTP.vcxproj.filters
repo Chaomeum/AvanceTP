@@ -27,6 +27,9 @@
     <ClCompile Include="MenuEmpresa.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Empresa.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MenuIndividuo.h">
@@ -51,6 +54,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Nodo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Empresa.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
