@@ -23,6 +23,8 @@ void MenuIndividuo::opcionSeleccionada(int opcion) const
             calcularImpuestosContribuyente(lst);
         case 4:
             mostrarContribuyentes(lst);
+        case 5:
+            ordenarContribuyentes(lst);
     }
 }
 
@@ -118,6 +120,7 @@ void MenuIndividuo::mostrarContribuyentes(Lista<CContribuyente*>* lst) const
     }
 }
 
+//Opcion 5
 void MenuIndividuo::ordenarContribuyentes(Lista<CContribuyente*>* lst) const
 {
     cout << "Opcion 5 seleccionada: Ordenar contribuyentes." << endl;
