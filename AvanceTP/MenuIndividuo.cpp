@@ -21,10 +21,22 @@ void MenuIndividuo::opcionSeleccionada(int opcion) const
             break;
         case 2:
             calcularImpuestosContribuyente(lst);
+            break;
+        case 3:
+            generarReporteContribuyentes();
+            break;
         case 4:
             mostrarContribuyentes(lst);
+            break;
         case 5:
             ordenarContribuyentes(lst);
+            break;
+        case 6:
+            guardarDatosContribuyentes();
+            break;
+        case 7:
+            cargarDatosContribuyentes();
+            break;
     }
 }
 
@@ -100,6 +112,12 @@ void MenuIndividuo::calcularImpuestosContribuyente(Lista<CContribuyente*>* lst) 
     }
 }
 
+//Opcion 3
+void MenuIndividuo::generarReporteContribuyentes() const
+{
+    cout << "Implementar logica de generar Reporte de clientes" << endl;
+}
+
 //Opcion 4
 void MenuIndividuo::mostrarContribuyentes(Lista<CContribuyente*>* lst) const
 {
@@ -140,4 +158,16 @@ void MenuIndividuo::ordenarContribuyentes(Lista<CContribuyente*>* lst) const
     else {
         cout << "Opción inválida." << endl;
     }
+}
+
+//Opcion 6
+void MenuIndividuo::guardarDatosContribuyentes() const
+{
+    cout << "Guardar Datos Contribuyentes en un archivo" << endl;
+}
+
+//Opcion 7
+void MenuIndividuo::cargarDatosContribuyentes() const
+{
+    cout<< "Cargar Datos Contribuyentes desde un archivo" << endl;
 }

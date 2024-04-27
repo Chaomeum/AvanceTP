@@ -46,13 +46,15 @@ int main() {
 		break;
 	}
 	int operacion;
-	if (menu != nullptr) {
-		menu->mostrarMenu();
-		cout << "Ingrese el número de la opción que desea: ";
-		cin >> operacion;
-		menu->opcionSeleccionada(operacion);
-		delete menu;
-	}
+	do {
+		if (menu != nullptr) {
+			menu->mostrarMenu();
+			cout << "Ingrese el número de la opción que desea: ";
+			cin >> operacion;
+			menu->opcionSeleccionada(operacion);			
+		}
+	} while (operacion != 8);
+	delete menu;
 
 	return 0;
 }

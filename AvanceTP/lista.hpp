@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Contribuyente.h"
 #include <functional>
 
 using namespace std;
@@ -235,6 +235,7 @@ void Lista<T>::sortShellPorIngresos() {
 
     delete[] array; // Liberar memoria del array dinámico
 }
+
 template <typename T>
 void Lista<T>::sortShellPorVenta() {
     // Convertir la lista en un array de punteros a contribuyentes
