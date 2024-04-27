@@ -117,3 +117,24 @@ void MenuIndividuo::mostrarContribuyentes(Lista<CContribuyente*>* lst) const
         cout << "---------------------------" << endl;
     }
 }
+
+void MenuIndividuo::ordenarContribuyentes(Lista<CContribuyente*>* lst) const
+{
+    cout << "Opcion 5 seleccionada: Ordenar contribuyentes." << endl;
+    cout << "¿Por qué criterio desea ordenar?" << endl;
+    cout << "1.- Por ingresos." << endl;
+    cout << "2.- Por monto de venta." << endl;
+    int opcionOrdenamiento;
+    cin >> opcionOrdenamiento;
+    if (opcionOrdenamiento == 1) {
+        lst->sortShellPorIngresos();
+        cout << "Contribuyentes ordenados por cantidad de ingresos." << endl;
+    }
+    else if (opcionOrdenamiento == 2) {
+        lst->sortShellPorVenta();
+        cout << "Contribuyentes ordenados por monto de venta." << endl;
+    }
+    else {
+        cout << "Opción inválida." << endl;
+    }
+}

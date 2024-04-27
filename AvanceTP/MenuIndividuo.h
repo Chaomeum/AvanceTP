@@ -17,5 +17,6 @@ private:
     void agregarNuevoContribuyente(Lista<CContribuyente*>* lst) const;
     void calcularImpuestosContribuyente(Lista<CContribuyente*>* lst) const;
     void mostrarContribuyentes(Lista<CContribuyente*>* lst) const;
+    void ordenarContribuyentes(Lista<CContribuyente*>* lst) const;
 };
 

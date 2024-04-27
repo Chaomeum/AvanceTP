@@ -10,10 +10,8 @@ template <typename T>
 class Lista {
     struct Nodo;
     typedef function<int(T, T)> Comp;
-
     Nodo*   ini;
     uint    lon; // número de elementos en la lista
-
     Comp    comparar; // lambda de criterio de comparación
 
 public:
@@ -42,6 +40,12 @@ public:
     T       obtenerFinal();
 
     T       buscar(T elem);
+
+    T* toArrayPointer();
+
+    void sortShellPorIngresos();
+
+    void sortShellPorVenta();
 };
 
 template <typename T>
@@ -98,6 +102,7 @@ void Lista<T>::agregaPos(T elem, uint pos) {
         }
     }
 }
+
 template <typename T>
 void Lista<T>::agregaFinal(T elem) {
     agregarPos(elem, lon); // ;)
@@ -109,6 +114,7 @@ void Lista<T>::modificarInicial(T elem) {
         ini->elem = elem;
     }
 }
+
 template <typename T>
 void Lista<T>::modificarPos(T elem, uint pos) {
     if (pos >= 0 && pos < lon) {
@@ -119,6 +125,7 @@ void Lista<T>::modificarPos(T elem, uint pos) {
         aux->elem = elem;
     }
 }
+
 template <typename T>
 void Lista<T>::modificarFinal(T elem) {
     modificar(elem, lon - 1);
@@ -133,10 +140,12 @@ void Lista<T>::eliminaInicial() {
         lon--;
     }
 }
+
 template <typename T>
 void Lista<T>::eliminaPos(uint pos) {
 
 }
+
 template <typename T>
 void Lista<T>::eliminaFinal() {
 
@@ -146,6 +155,7 @@ template <typename T>
 T Lista<T>::obtenerInicial() {
     return obtenerPos(0);
 }
+
 template <typename T>
 T Lista<T>::obtenerPos(uint pos) {
     if (pos >= 0 && pos < lon) {
@@ -158,6 +168,7 @@ T Lista<T>::obtenerPos(uint pos) {
         return NULL;
     }
 }
+
 template <typename T>
 T Lista<T>::obtenerFinal() {
     return obtenerPos(lon - 1);
@@ -173,4 +184,88 @@ T Lista<T>::buscar(T elem) {
         aux = aux->sig;
     }
     return NULL;
+}
+
+template <typename T>
+T* Lista<T>::toArrayPointer() {
+    if (lon == 0) return nullptr;
+
+    T* array = new T[lon];
+    Nodo* actual = ini;
+    uint i = 0;
+    while (actual != nullptr) {
+        array[i] = actual->elem;
+        actual = actual->sig;
+        i++;
+    }
+    return array;
+}
+
+template <typename T>
+void Lista<T>::sortShellPorIngresos() {
+    // Convertir la lista en un array de punteros a contribuyentes
+    CContribuyente** array = new CContribuyente * [lon];
+    Nodo* actual = ini;
+    uint i = 0;
+    while (actual != nullptr) {
+        array[i] = actual->elem;
+        actual = actual->sig;
+        i++;
+    }
+
+    // Aplicar el algoritmo de ordenación Shell al array
+    uint n = lon;
+    for (uint intervalo = n / 2; intervalo > 0; intervalo /= 2) {
+        for (uint i = intervalo; i < n; i += 1) {
+            CContribuyente* temp = array[i];
+            uint j;
+            for (j = i; j >= intervalo && array[j - intervalo]->ingresos < temp->ingresos; j -= intervalo) {
+                array[j] = array[j - intervalo];
+            }
+            array[j] = temp;
+        }
+    }
+
+    // Actualizar la lista con los contribuyentes ordenados
+    actual = ini;
+    for (uint i = 0; i < n; i++) {
+        actual->elem = array[i];
+        actual = actual->sig;
+    }
+
+    delete[] array; // Liberar memoria del array dinámico
+}
+template <typename T>
+void Lista<T>::sortShellPorVenta() {
+    // Convertir la lista en un array de punteros a contribuyentes
+    CContribuyente** array = new CContribuyente * [lon];
+    Nodo* actual = ini;
+    uint i = 0;
+    while (actual != nullptr) {
+        array[i] = actual->elem;
+        actual = actual->sig;
+        i++;
+    }
+
+    // Aplicar el algoritmo de ordenación Shell al array
+    uint n = lon;
+    for (uint intervalo = n / 2; intervalo > 0; intervalo /= 2) {
+        for (uint i = intervalo; i < n; i += 1) {
+            CContribuyente* temp = array[i];
+            uint j;
+            for (j = i; j >= intervalo && array[j - intervalo]->montoVenta < temp->montoVenta; j -= intervalo) {
+                array[j] = array[j - intervalo];
+            }
+            array[j] = temp;
+        }
+    }
+
+    // Actualizar la lista con los contribuyentes ordenados
+    actual = ini;
+    for (uint i = 0; i < n; i++) {
+        actual->elem = array[i];
+        actual = actual->sig;
+    }
+
+    delete[] array; // Liberar memoria del array dinámico
 }
