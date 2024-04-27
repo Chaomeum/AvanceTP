@@ -37,6 +37,7 @@ int main() {
 		break;
 	case 2:
 		cout << "Mostrar menu empresa" << endl;
+		menu = new MenuEmpresa();
 		break;
 	case 3:
 		cout << "Salir del programa" << endl;
