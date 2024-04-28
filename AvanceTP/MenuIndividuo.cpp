@@ -187,15 +187,15 @@ void MenuIndividuo::guardarDatosContribuyentes(Lista<CContribuyente*>* lst) cons
     for (int i = 0; i < lst->longitud(); i++)
     {
         CContribuyente* e = lst->obtenerPos(i);
-        arch << e->nombre << setw(8) << e->id << setw(15) << e->ingresos << setw(13) <<
-            e->montoVenta << endl;
+        arch << left << setw(10) << e->nombre << right << fixed << setprecision(2) << setw(7) << e->id << setw(15)
+            << e->ingresos << setw(13) << e->montoVenta << endl;
     }
 }
 
 //Opcion 6
 void MenuIndividuo::cargarDatosContribuyentes(Lista<CContribuyente*>* lst) const
 {
-    cout << "Cargar Datos Contribuyentes desde un archivo" << endl;
+    cout << "Opcion 6: Cargar Datos Contribuyentes desde un archivo" << endl;
     cout << endl;
     ifstream arch("ArchivoContribuyentes.csv", ios::in);
     if (not arch.is_open()) {
