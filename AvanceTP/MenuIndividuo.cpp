@@ -2,11 +2,10 @@
 
 void MenuIndividuo::mostrarMenu() const
 {
-    for (int i = 0; i < 46; i++) cout << "-";
-    cout << endl;
+    FuncionesArch f;
+    f.imprimeSimbolo(46, '-');  
     cout << setw(31) <<"MENU INDIVIDUO" << endl;
-    for (int i = 0; i < 46; i++) cout << "-";
-    cout << endl;
+    f.imprimeSimbolo(46, '-');
     cout << "1.- Agregar un nuevo contribuyente." << endl;
     cout << "2.- Calcular impuestos para un contribuyente." << endl;
     cout << "3.- Ver lista de contribuyentes." << endl;
@@ -14,14 +13,13 @@ void MenuIndividuo::mostrarMenu() const
     cout << "5.- Guardar datos en archivo." << endl;
     cout << "6.- Cargar datos desde archivo." << endl;
     cout << "7.- Salir del programa." << endl;
-    for (int i = 0; i < 46; i++) cout << "-";
-    cout << endl;
+    f.imprimeSimbolo(46, '-');
 }
 
 void MenuIndividuo::opcionSeleccionada(int opcion) const
 {
-    for (int i = 0; i < 46; i++) cout << "-";
-    cout << endl;
+    FuncionesArch f;
+    f.imprimeSimbolo(46, '-');
     switch (opcion) {
         case 1:
             agregarNuevoContribuyente(lst);

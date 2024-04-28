@@ -2,11 +2,10 @@
 
 void MenuEmpresa::mostrarMenu() const
 {
-    for (int i = 0; i < 58; i++) cout << "-";
-    cout << endl;;
+    FuncionesArch f;    
+    f.imprimeSimbolo(58, '-');
     cout << setw(37) << "MENU EMPRESA" << endl;
-    for (int i = 0; i < 58; i++) cout << "-";
-    cout << endl;
+    f.imprimeSimbolo(58, '-');
     cout << "1.- Agregar una nueva empresa." << endl;
     cout << "2.- Calcular impuestos para una empresa." << endl;
     cout << "3.- Ver estado de declaracion de impuestos de una empresa" << endl; 
@@ -14,15 +13,13 @@ void MenuEmpresa::mostrarMenu() const
     cout << "5.- Ordenar empresas por algún criterio." << endl;
     cout << "6.- Guardar datos en archivo." << endl;
     cout << "7.- Salir del programa." << endl;
-    for (int i = 0; i < 58; i++) cout << "-";
-    cout << endl;
+    f.imprimeSimbolo(58, '-');
 }
-
 
 void MenuEmpresa::opcionSeleccionada(int opcion) const
 {
-    for (int i = 0; i < 58; i++) cout << "-";
-    cout << endl;
+    FuncionesArch f;
+    f.imprimeSimbolo(58, '-');
     switch (opcion) {
     case 1:
         agregarNuevaEmpresa(lst);
@@ -138,8 +135,6 @@ void MenuEmpresa::verEstadoImpuestosEmpresa(Lista<Empresa*>* lst) const
     cout << endl;
 }
 
-
-
 //Opcion 4
 void MenuEmpresa::mostrarEmpresas(Lista<Empresa*>* lst) const
 {
@@ -164,7 +159,7 @@ void MenuEmpresa::mostrarEmpresas(Lista<Empresa*>* lst) const
     }
 }
 
-//Opcion 4
+//Opcion 5
 void MenuEmpresa::ordenarEmpresas(Lista<Empresa*>* lst) const
 {   
     int opcionOrdenamiento;
@@ -184,7 +179,7 @@ void MenuEmpresa::ordenarEmpresas(Lista<Empresa*>* lst) const
             cout << "Empresas ordenadas por monto de venta." << endl;
         }
         else {
-            cout << "Opción inválida." << endl;
+            cout << "Opcion no valida." << endl;
         }        
     } while (opcionOrdenamiento < 1 || opcionOrdenamiento > 2);   
 }
@@ -192,6 +187,7 @@ void MenuEmpresa::ordenarEmpresas(Lista<Empresa*>* lst) const
 //Opcion 6
 void MenuEmpresa::guardarDatosEmpresas(Lista<Empresa*>* lst) const
 {
+    FuncionesArch f;
     cout << "Opcion 6: Guardar datos recopilados en archivo" << endl;
     cout << endl;
     ofstream arch("ListaEmpresas.txt", ios::out);
@@ -200,12 +196,10 @@ void MenuEmpresa::guardarDatosEmpresas(Lista<Empresa*>* lst) const
         exit(1);
     }
     arch << "Informacion recopilada sobre empresas en el gestor de impuestos" << endl;
-    for (int i = 0; i < 75; i++) arch << "-";
-    arch << endl;
+    f.imprimeSimbolo(75, '-');
     arch << "Nombre" << setw(13) << "Numero RUC" << setw(13) << "Ingresos" << setw(15) << "Monto Venta"
         << setw(10) << "Ciudad" << setw(18) << "Estado deudor" << endl;
-    for (int i = 0; i < 75; i++) arch << "-";
-    arch << endl;
+    f.imprimeSimbolo(75, '-');
 
     for (int i = 0; i < lst->longitud(); i++)
     {

@@ -7,5 +7,6 @@ class FuncionesArch
 {
 public:
 	char* leeCadenaExacta(ifstream & arch, char delim);
+	void imprimeSimbolo(int n, char car);
 };
 

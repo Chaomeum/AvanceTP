@@ -5,6 +5,7 @@
 #include "Menu.h"
 #include "lista.hpp"
 #include "Empresa.h"
+#include "FuncionesArch.h"
 using namespace std;
 
 class MenuEmpresa : public Menu

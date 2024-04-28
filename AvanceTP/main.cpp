@@ -3,6 +3,7 @@
 #include <string>
 #include <stdlib.h>
 #include "lista.hpp"
+#include "FuncionesArch.h"
 #include "Contribuyente.h"
 #include "Empresa.h"
 #include "Menu.h"
@@ -13,17 +14,15 @@ using namespace std;
 int main() {
 	int opcion;
 	/*Interfaz de bienvenida*/
-	for (int i = 0; i < 60; i++) cout << "=";
-	cout << endl;
+	FuncionesArch f;
+	f.imprimeSimbolo(60, '=');
 	cout << setw(50) << "Bienvenido a nuestro gestor de impuestos" << endl;
-	for (int i = 0; i < 60; i++) cout << "-";
-	cout << endl;
+	f.imprimeSimbolo(60, '-');
 	cout << "Elija la opcion que desee ejecutar: " << endl;
 	cout << setw(30) << "1. Ingresar como individuo" << endl;
 	cout << setw(28) << "2. Ingresar como empresa" << endl;
 	cout << setw(12) << "3. Salir" << endl;	
-	for (int i = 0; i < 60; i++) cout << "-";
-	cout << endl;
+	f.imprimeSimbolo(60, '-');
 	/*Validacion de la opcion ingresada*/
 	do {
 		cout << "Escriba la opcion aqui: ";

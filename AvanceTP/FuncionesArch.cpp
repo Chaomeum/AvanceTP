@@ -9,3 +9,12 @@ char* FuncionesArch::leeCadenaExacta(ifstream& arch, char delim)
     strcpy_s(cadena, strlen(buffer) + 1, buffer);
     return cadena;
 }
+
+void FuncionesArch::imprimeSimbolo(int n, char car)
+{
+    for (int i = 0; i < n; i++)
+    {
+        cout << car;
+    }
+    cout << endl;
+}
