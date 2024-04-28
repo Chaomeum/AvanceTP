@@ -24,36 +24,41 @@ int main() {
 	cout << setw(12) << "3. Salir" << endl;	
 	for (int i = 0; i < 60; i++) cout << "-";
 	cout << endl;
-	cout << "Escriba la opcion aqui: ";
-	cin >> opcion;		
+	/*Validacion de la opcion ingresada*/
+	do {
+		cout << "Escriba la opcion aqui: ";
+		cin >> opcion;
 
-	//Se limpia la pantalla cuando el usuario introduce una opcion
+		if (opcion < 1 || opcion > 3) {
+			cout << "Opcion invalida. Por favor, ingrese una opcion valida." << endl << endl;
+		}
+	} while (opcion < 1 || opcion > 3);
+
+	/*Se limpia la pantalla cuando el usuario introduce una opcion valida*/
 	system("CLS");
 
-	//Creacion de instancias para mostrar el menu correspondiente a la opcion elegida
+	/*Creacion de instancias para mostrar el menu correspondiente a la opcion elegida*/
 	Menu* menu = nullptr;
 
-	//Se crean las listas que gestionaran los datos de cada tipo de usuario
+	/*Se crean las listas que gestionaran los datos de cada tipo de usuario*/
 	Lista<Empresa*>* lstEmpresa = new Lista<Empresa*> ;
 	Lista<CContribuyente*>* lstContribuyente = new Lista<CContribuyente*> ;
 
-	switch (opcion) {
-	case 1:		
-		//se pasa la lista Contribuyete como parametro en el constructor de menuIndividuo
-		menu = new MenuIndividuo(lstContribuyente); 
-		break;
-	case 2:		
-		//se pasa la lista Empresa como parametro en el constructor de menuEmpresa
-		menu = new MenuEmpresa(lstEmpresa);
-		break;
-	case 3:
-		cout << "Salir del programa" << endl;
-		break;
-	default:
-		cout << "Ha ingresado una opcion invalida" << endl;
-		break;
+	if (opcion == 1) {
+		/*se pasa la lista Contribuyete como parametro en el constructor de menuIndividuo*/
+		menu = new MenuIndividuo(lstContribuyente);
 	}
-
+	else if (opcion == 2) {
+		/*se pasa la lista Empresa como parametro en el constructor de menuEmpresa*/
+		menu = new MenuEmpresa(lstEmpresa);
+	}
+	else {
+		cout << "Salir del programa" << endl;
+		delete lstEmpresa;  // Liberar memoria de la lista de empresas
+		delete lstContribuyente;  // Liberar memoria de la lista de contribuyentes
+		return 0;
+	}
+	/*Despliegue y ejecucion de las operaciones correspondientes a cada menu*/
 	int operacion;
 	do {
 		if (menu != nullptr) {

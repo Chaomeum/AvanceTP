@@ -51,6 +51,8 @@ void MenuIndividuo::opcionSeleccionada(int opcion) const
 //Opcion 1
 void MenuIndividuo::agregarNuevoContribuyente(Lista<CContribuyente*>* lst) const
 {
+    cout << "Opcion 1: Agregar un nuevo contribuyente" << endl;    
+    cout << endl;    
     CContribuyente* contribuyente = new CContribuyente();
     cout << "Ingrese el nombre del contribuyente: ";
     cin >> contribuyente->nombre;
@@ -86,6 +88,8 @@ void MenuIndividuo::agregarNuevoContribuyente(Lista<CContribuyente*>* lst) const
 //Opcion 2
 void MenuIndividuo::calcularImpuestosContribuyente(Lista<CContribuyente*>* lst) const
 {
+    cout << "Opcion 2: Calcular impuestos por contribuyente" << endl;
+    cout << endl;
     cout << "Ingrese el ID del contribuyente para calcular sus impuestos: ";
     int idContribuyente;
     cin >> idContribuyente;
@@ -123,18 +127,22 @@ void MenuIndividuo::calcularImpuestosContribuyente(Lista<CContribuyente*>* lst) 
 //Opcion 3
 void MenuIndividuo::generarReporteContribuyentes() const
 {
-    cout << "Implementar logica de generar Reporte de clientes" << endl;
+    cout << "Opcion 3: Generar reporte de contribuyentes" << endl;
+    cout << endl;
 }
 
 //Opcion 4
 void MenuIndividuo::mostrarContribuyentes(Lista<CContribuyente*>* lst) const
 {
+    cout << "Opcion 4: Mostrar contribuyentes." << endl;
+    cout << endl;
     if (lst->esVacia()) {
         cout << "No hay contribuyentes para mostrar." << endl;
         return;
     }
 
     cout << "Lista de Contribuyentes:" << endl;
+    cout << "---------------------------" << endl;
     for (int i = 0; i < lst->longitud(); i++) {
         CContribuyente* contribuyente = lst->obtenerPos(i);
         cout << "Nombre: " << contribuyente->nombre << endl;
@@ -148,23 +156,26 @@ void MenuIndividuo::mostrarContribuyentes(Lista<CContribuyente*>* lst) const
 //Opcion 5
 void MenuIndividuo::ordenarContribuyentes(Lista<CContribuyente*>* lst) const
 {
-    cout << "Opcion 5 seleccionada: Ordenar contribuyentes." << endl;
-    cout << "¿Por qué criterio desea ordenar?" << endl;
-    cout << "1.- Por ingresos." << endl;
-    cout << "2.- Por monto de venta." << endl;
     int opcionOrdenamiento;
-    cin >> opcionOrdenamiento;
-    if (opcionOrdenamiento == 1) {
-        lst->sortShellPorIngresos();
-        cout << "Contribuyentes ordenados por cantidad de ingresos." << endl;
-    }
-    else if (opcionOrdenamiento == 2) {
-        lst->sortShellPorVenta();
-        cout << "Contribuyentes ordenados por monto de venta." << endl;
-    }
-    else {
-        cout << "Opción inválida." << endl;
-    }
+    cout << "Opcion 5: Ordenar contribuyentes." << endl;
+    cout << endl;
+    do {
+        cout << "¿Por qué criterio desea ordenar?" << endl;
+        cout << "1.- Por ingresos." << endl;
+        cout << "2.- Por monto de venta." << endl;
+        cin >> opcionOrdenamiento;
+        if (opcionOrdenamiento == 1) {
+            lst->sortShellPorIngresos();
+            cout << "Contribuyentes ordenados por cantidad de ingresos." << endl;
+        }
+        else if (opcionOrdenamiento == 2) {
+            lst->sortShellPorVenta();
+            cout << "Contribuyentes ordenados por monto de venta." << endl;
+        }
+        else {
+            cout << "Opción inválida." << endl;
+        }
+    } while (opcionOrdenamiento < 1 || opcionOrdenamiento > 2);    
 }
 
 //Opcion 6

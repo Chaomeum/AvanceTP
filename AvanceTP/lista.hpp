@@ -1,5 +1,6 @@
 #pragma once
 #include "Contribuyente.h"
+#include "Empresa.h"
 #include <functional>
 
 using namespace std;
@@ -44,8 +45,10 @@ public:
     T* toArrayPointer();
 
     void sortShellPorIngresos();
-
     void sortShellPorVenta();
+
+    void sortBubblePorIngresos();
+    void sortBubblePorVenta();
 };
 
 template <typename T>
@@ -269,4 +272,75 @@ void Lista<T>::sortShellPorVenta() {
     }
 
     delete[] array; // Liberar memoria del array dinámico
+}
+
+template <typename T>
+void Lista<T>::sortBubblePorIngresos() {
+    Empresa** array = new Empresa * [lon];
+    Nodo* actual = ini;
+    uint i = 0;
+
+    // Convertir la lista en un array de punteros a empresas o contribuyentes
+    while (actual != nullptr) {
+        array[i] = actual->elem;
+        actual = actual->sig;
+        i++;
+    }
+
+
+    // Aplicar el algoritmo de ordenación Bubble al array
+    for (uint i = 0; i < lon - 1; i++) {
+        for (uint j = 0; j < lon - i - 1; j++) {
+            if (array[j]->ingresos > array[j + 1]->ingresos) {
+                Empresa* temp = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = temp;
+            }
+        }
+    }
+
+    // Actualizar la lista con las empresas ordeandas
+    actual = ini;
+    for (uint i = 0; i < lon; i++) {
+        actual->elem = array[i];
+        actual = actual->sig;
+    }
+
+    delete[] array;
+}
+
+
+template <typename T>
+void Lista<T>::sortBubblePorVenta() {
+    Empresa** array = new Empresa * [lon];
+    Nodo* actual = ini;
+    uint i = 0;
+
+    // Convertir la lista en un array de punteros a empresas 
+    while (actual != nullptr) {
+        array[i] = actual->elem;
+        actual = actual->sig;
+        i++;
+    }
+
+
+    // Aplicar el algoritmo de ordenación Bubble al array
+    for (uint i = 0; i < lon - 1; i++) {
+        for (uint j = 0; j < lon - i - 1; j++) {
+            if (array[j]->montoVenta > array[j + 1]->montoVenta) {
+                Empresa* temp = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = temp;
+            }
+        }
+    }
+
+    // Actualizar la lista con las empresas ordenados
+    actual = ini;
+    for (uint i = 0; i < lon; i++) {
+        actual->elem = array[i];
+        actual = actual->sig;
+    }
+
+    delete[] array;
 }

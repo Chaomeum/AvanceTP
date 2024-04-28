@@ -68,7 +68,7 @@ void MenuEmpresa::agregarNuevaEmpresa(Lista<Empresa*>* lst) const
     cout << "Ingresa el nombre de la ciudad de la empresa: ";
     cin >> empresa->ciudad;
 
-    cout << "Ingresa el estado deudor de la empresa";
+    cout << "Ingresa el estado deudor de la empresa: ";
     cin >> empresa->estadoDeudor;
 
     bool rucOcupada = false;
@@ -112,12 +112,15 @@ void MenuEmpresa::generarReporteEmpresa() const
 //Opcion 5
 void MenuEmpresa::mostrarEmpresas(Lista<Empresa*>* lst) const
 {
+    cout << "Opcion 5: Mostrar empresas afiliadas." << endl;
+    cout << endl;
     if (lst->esVacia()) {
         cout << "No hay empresas para mostrar." << endl;
         return;
     }
 
-    cout << "Lista de Contribuyentes:" << endl;
+    cout << "Lista de empresas afiliadas:" << endl;
+    cout << "---------------------------" << endl;
     for (int i = 0; i < lst->longitud(); i++) {
         Empresa* empresa = lst->obtenerPos(i);
         cout << "Nombre: " << empresa->nombre << endl;
@@ -132,8 +135,27 @@ void MenuEmpresa::mostrarEmpresas(Lista<Empresa*>* lst) const
 
 //Opcion 6
 void MenuEmpresa::ordenarEmpresas(Lista<Empresa*>* lst) const
-{
-    cout << "Opcion 6" << endl;
+{   
+    int opcionOrdenamiento;
+    cout << "Opcion 6: Ordenar Empresas." << endl;
+    cout << endl;
+    do {
+        cout << "¿Por qué criterio desea ordenar?" << endl;
+        cout << "1.- Por ingresos." << endl;
+        cout << "2.- Por monto de venta." << endl;
+        cin >> opcionOrdenamiento;
+        if (opcionOrdenamiento == 1) {
+            lst->sortBubblePorIngresos();
+            cout << "Empresas ordenados por cantidad de ingresos." << endl;
+        }
+        else if (opcionOrdenamiento == 2) {
+            lst->sortBubblePorVenta();
+            cout << "Empresas ordenadas por monto de venta." << endl;
+        }
+        else {
+            cout << "Opción inválida." << endl;
+        }        
+    } while (opcionOrdenamiento < 1 || opcionOrdenamiento > 2);   
 }
 
 //Opcion 7
