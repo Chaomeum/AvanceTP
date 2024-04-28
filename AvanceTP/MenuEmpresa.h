@@ -20,9 +20,8 @@ private:
     void agregarNuevaEmpresa(Lista<Empresa*>* lst) const;       //Opcion 1
     void calcularImpuestosEmpresa(Lista<Empresa*>* lst) const;  //Opcion 2
     void verEstadoImpuestosEmpresa(Lista<Empresa*>* lst) const; //Opcion 3
-    void generarReporteEmpresa() const;                         //Opcion 4
-    void mostrarEmpresas(Lista<Empresa*>* lst) const;           //Opcion 5
-    void ordenarEmpresas(Lista<Empresa*>* lst) const;           //Opcion 6
-    void guardarDatosEmpresas(Lista<Empresa*>* lst) const;                          //Opcion 7
+    void mostrarEmpresas(Lista<Empresa*>* lst) const;           //Opcion 4
+    void ordenarEmpresas(Lista<Empresa*>* lst) const;           //Opcion 5
+    void guardarDatosEmpresas(Lista<Empresa*>* lst) const;      //Opcion 6
 };  
 

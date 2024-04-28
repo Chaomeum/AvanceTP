@@ -171,9 +171,9 @@ void MenuEmpresa::ordenarEmpresas(Lista<Empresa*>* lst) const
     cout << "Opcion 5: Ordenar Empresas." << endl;
     cout << endl;
     do {
-        cout << "¿Por qué criterio desea ordenar?" << endl;
+        cout << "¿Por que criterio desea ordenar a las empresas?" << endl;
         cout << "1.- Por ingresos." << endl;
-        cout << "2.- Por monto de venta." << endl;
+        cout << "2.- Por monto de venta." << endl << endl;
         cin >> opcionOrdenamiento;
         if (opcionOrdenamiento == 1) {
             lst->sortBubblePorIngresos();

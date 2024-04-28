@@ -39,7 +39,7 @@ void MenuIndividuo::opcionSeleccionada(int opcion) const
             guardarDatosContribuyentes(lst);
             break;
         case 6:
-            cargarDatosContribuyentes();
+            cargarDatosContribuyentes(lst);
             break;
     }
 }
@@ -149,9 +149,9 @@ void MenuIndividuo::ordenarContribuyentes(Lista<CContribuyente*>* lst) const
     cout << "Opcion 4: Ordenar contribuyentes." << endl;
     cout << endl;
     do {
-        cout << "¿Por qué criterio desea ordenar?" << endl;
+        cout << "¿Por que criterio desea ordenar a los contribuyentes?" << endl;
         cout << "1.- Por ingresos." << endl;
-        cout << "2.- Por monto de venta." << endl;
+        cout << "2.- Por monto de venta." << endl << endl;
         cin >> opcionOrdenamiento;
         if (opcionOrdenamiento == 1) {
             lst->sortShellPorIngresos();
@@ -193,9 +193,32 @@ void MenuIndividuo::guardarDatosContribuyentes(Lista<CContribuyente*>* lst) cons
 }
 
 //Opcion 6
-void MenuIndividuo::cargarDatosContribuyentes() const
+void MenuIndividuo::cargarDatosContribuyentes(Lista<CContribuyente*>* lst) const
 {
-    cout<< "Cargar Datos Contribuyentes desde un archivo" << endl;
+    cout << "Cargar Datos Contribuyentes desde un archivo" << endl;
     cout << endl;
-    ifstream arch("ArchivoClientes");
+    ifstream arch("ArchivoContribuyentes.csv", ios::in);
+    if (not arch.is_open()) {
+        cout << "ERROR: No se pudo abrir el archivo ArchivoContribuyentes.csv" << endl;
+        exit(1);
+    }
+    char* ptrNombre, car;
+    int id;
+    double ingresos, monto;
+    FuncionesArch f;
+    int lon = lst->longitud();
+    while (1) {
+        CContribuyente* contribuyente = new CContribuyente();
+        ptrNombre = f.leeCadenaExacta(arch, ',');
+        if (arch.eof()) break;
+        arch >> id >> car >> ingresos >> car >> monto;
+        arch.get();
+        contribuyente->nombre = ptrNombre;
+        contribuyente->id = id;
+        contribuyente->ingresos = ingresos;
+        contribuyente->montoVenta = monto;
+        
+        lst->agregaPos(contribuyente,lon);
+        lon++;
+    }
 }
