@@ -11,6 +11,7 @@ private:
     Lista<CContribuyente*>* lst;
 
 public:
+    MenuIndividuo(Lista<CContribuyente*>* lista) : lst(lista) {}
     void mostrarMenu() const override;
     void opcionSeleccionada(int opcion) const override;
 

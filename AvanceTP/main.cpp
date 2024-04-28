@@ -2,6 +2,9 @@
 #include <iomanip>
 #include <string>
 #include <stdlib.h>
+#include "lista.hpp"
+#include "Contribuyente.h"
+#include "Empresa.h"
 #include "Menu.h"
 #include "MenuIndividuo.h"
 #include "MenuEmpresa.h"
@@ -29,15 +32,18 @@ int main() {
 
 	//Creacion de instancias para mostrar el menu correspondiente a la opcion elegida
 	Menu* menu = nullptr;
+	
+	Lista<Empresa*>* lstEmpresa = new Lista<Empresa*> ;
+	Lista<CContribuyente*>* lstContribuyente = new Lista<CContribuyente*> ;
 
 	switch (opcion) {
 	case 1:
 		cout << "Mostrar menu individuo" << endl;
-		menu = new MenuIndividuo();
+		menu = new MenuIndividuo(lstContribuyente);
 		break;
 	case 2:
 		cout << "Mostrar menu empresa" << endl;
-		menu = new MenuEmpresa();
+		menu = new MenuEmpresa(lstEmpresa);
 		break;
 	case 3:
 		cout << "Salir del programa" << endl;
@@ -46,6 +52,7 @@ int main() {
 		cout << "Ha ingresado una opcion invalida" << endl;
 		break;
 	}
+
 	int operacion;
 	do {
 		if (menu != nullptr) {

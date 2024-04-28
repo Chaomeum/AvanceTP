@@ -9,6 +9,7 @@ private:
     Lista<Empresa*>* lst;
     
 public:
+    MenuEmpresa(Lista<Empresa*>* lista) : lst(lista) {}
     void mostrarMenu() const override;
     void opcionSeleccionada(int opcion) const override;
 private:
