@@ -68,7 +68,7 @@ int main() {
 			menu->opcionSeleccionada(operacion);	
 			cout << endl;
 		}
-	} while (operacion != 8);
+	} while (operacion != 7);
 	delete menu;
 
 	return 0;

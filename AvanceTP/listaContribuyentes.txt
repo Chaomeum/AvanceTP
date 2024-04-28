@@ -1,0 +1,7 @@
+Informacion recopilada sobre contribuyentes en el gestor de impuestos
+--------------------------------------------------
+Nombre    Numero ID     Ingresos    Monto Venta
+--------------------------------------------------
+C       3             20           14
+A       1             10            8
+B       2             15            6

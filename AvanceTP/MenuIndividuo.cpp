@@ -9,12 +9,11 @@ void MenuIndividuo::mostrarMenu() const
     cout << endl;
     cout << "1.- Agregar un nuevo contribuyente." << endl;
     cout << "2.- Calcular impuestos para un contribuyente." << endl;
-    cout << "3.- Generar reporte de impuestos." << endl;
-    cout << "4.- Ver lista de contribuyentes." << endl;
-    cout << "5.- Ordenar contribuyentes por algún criterio." << endl;
-    cout << "6.- Guardar datos en archivo." << endl;
-    cout << "7.- Cargar datos desde archivo." << endl;
-    cout << "8.- Salir del programa." << endl;
+    cout << "3.- Ver lista de contribuyentes." << endl;
+    cout << "4.- Ordenar contribuyentes por algún criterio." << endl;
+    cout << "5.- Guardar datos en archivo." << endl;
+    cout << "6.- Cargar datos desde archivo." << endl;
+    cout << "7.- Salir del programa." << endl;
     for (int i = 0; i < 46; i++) cout << "-";
     cout << endl;
 }
@@ -31,18 +30,15 @@ void MenuIndividuo::opcionSeleccionada(int opcion) const
             calcularImpuestosContribuyente(lst);
             break;
         case 3:
-            generarReporteContribuyentes();
-            break;
-        case 4:
             mostrarContribuyentes(lst);
             break;
-        case 5:
+        case 4:
             ordenarContribuyentes(lst);
             break;
-        case 6:
+        case 5:
             guardarDatosContribuyentes(lst);
             break;
-        case 7:
+        case 6:
             cargarDatosContribuyentes();
             break;
     }
@@ -125,16 +121,9 @@ void MenuIndividuo::calcularImpuestosContribuyente(Lista<CContribuyente*>* lst) 
 }
 
 //Opcion 3
-void MenuIndividuo::generarReporteContribuyentes() const
-{
-    cout << "Opcion 3: Generar reporte de contribuyentes" << endl;
-    cout << endl;
-}
-
-//Opcion 4
 void MenuIndividuo::mostrarContribuyentes(Lista<CContribuyente*>* lst) const
 {
-    cout << "Opcion 4: Mostrar contribuyentes." << endl;
+    cout << "Opcion 3: Mostrar contribuyentes." << endl;
     cout << endl;
     if (lst->esVacia()) {
         cout << "No hay contribuyentes para mostrar." << endl;
@@ -153,11 +142,11 @@ void MenuIndividuo::mostrarContribuyentes(Lista<CContribuyente*>* lst) const
     }
 }
 
-//Opcion 5
+//Opcion 4
 void MenuIndividuo::ordenarContribuyentes(Lista<CContribuyente*>* lst) const
 {
     int opcionOrdenamiento;
-    cout << "Opcion 5: Ordenar contribuyentes." << endl;
+    cout << "Opcion 4: Ordenar contribuyentes." << endl;
     cout << endl;
     do {
         cout << "¿Por qué criterio desea ordenar?" << endl;
@@ -178,10 +167,10 @@ void MenuIndividuo::ordenarContribuyentes(Lista<CContribuyente*>* lst) const
     } while (opcionOrdenamiento < 1 || opcionOrdenamiento > 2);    
 }
 
-//Opcion 6
+//Opcion 5
 void MenuIndividuo::guardarDatosContribuyentes(Lista<CContribuyente*>* lst) const
 {
-    cout << "Opcion 6: Guardar Datos Contribuyentes en un archivo" << endl;
+    cout << "Opcion 5: Guardar Datos Contribuyentes en un archivo" << endl;
     cout << endl;
     ofstream arch("listaContribuyentes.txt", ios::out);
     if (not arch.is_open()) {
@@ -203,8 +192,10 @@ void MenuIndividuo::guardarDatosContribuyentes(Lista<CContribuyente*>* lst) cons
     }
 }
 
-//Opcion 7
+//Opcion 6
 void MenuIndividuo::cargarDatosContribuyentes() const
 {
     cout<< "Cargar Datos Contribuyentes desde un archivo" << endl;
+    cout << endl;
+    ifstream arch("ArchivoClientes");
 }

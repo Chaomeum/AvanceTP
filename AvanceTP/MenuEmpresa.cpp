@@ -9,12 +9,11 @@ void MenuEmpresa::mostrarMenu() const
     cout << endl;
     cout << "1.- Agregar una nueva empresa." << endl;
     cout << "2.- Calcular impuestos para una empresa." << endl;
-    cout << "3.- Ver estado de declaracion de impuestos de una empresa" << endl;
-    cout << "4.- Generar reporte de impuestos." << endl;
-    cout << "5.- Ver lista de empresas miembro." << endl;
-    cout << "6.- Ordenar empresas por algún criterio." << endl;
-    cout << "7.- Guardar datos en archivo." << endl;
-    cout << "8.- Salir del programa." << endl;
+    cout << "3.- Ver estado de declaracion de impuestos de una empresa" << endl; 
+    cout << "4.- Ver lista de empresas miembro." << endl;
+    cout << "5.- Ordenar empresas por algún criterio." << endl;
+    cout << "6.- Guardar datos en archivo." << endl;
+    cout << "7.- Salir del programa." << endl;
     for (int i = 0; i < 58; i++) cout << "-";
     cout << endl;
 }
@@ -33,17 +32,14 @@ void MenuEmpresa::opcionSeleccionada(int opcion) const
         break;
     case 3:
         verEstadoImpuestosEmpresa(lst);
-        break;
+        break;   
     case 4:
-        generarReporteEmpresa();
-        break;
-    case 5:
         mostrarEmpresas(lst);
         break;
-    case 6:
+    case 5:
         ordenarEmpresas(lst);
         break;
-    case 7:
+    case 6:
         guardarDatosEmpresas(lst);
         break;
     }
@@ -57,7 +53,7 @@ void MenuEmpresa::agregarNuevaEmpresa(Lista<Empresa*>* lst) const
     Empresa* empresa = new Empresa();
     cout << "Ingrese el nombre de la empresa: ";
     cin >> empresa->nombre;
-
+    
     cout << "Ingrese el RUC de la empresa: ";
     cin >> empresa->RUC;
 
@@ -98,6 +94,41 @@ void MenuEmpresa::calcularImpuestosEmpresa(Lista<Empresa*>* lst) const
 {
     cout << "Opcion 2: Calcular impuestos por empresa" << endl;
     cout << endl; 
+    cout << "Ingrese el RUC de la empresa para calcular sus impuestos: ";
+    int rucEmpresa;
+    cin >> rucEmpresa;
+
+    Empresa* empresa = nullptr;
+    for (int i = 0; i < lst->longitud(); i++)
+    {
+        Empresa* e = lst->obtenerPos(i);
+        if (e->RUC == rucEmpresa) {
+            empresa = e;
+            break;
+        }
+    }
+
+    if (empresa != nullptr) {
+        cout << "Contribuyente detectado:" << endl;
+        cout << "Nombre: " << empresa->nombre << endl;
+        cout << "RUC: " << empresa->RUC << endl;
+        cout << "Ingresos: " << empresa->ingresos << endl;
+        cout << "Monto de Venta: " << empresa->montoVenta << endl;
+        cout << "Ciudad: " << empresa->ciudad << endl;
+        cout << "Estado deudor: " << empresa->estadoDeudor << endl;
+
+        CImpuesto impuesto;
+        double impuestosIngresos = impuesto.calcularImpuestosPorIngresos(empresa->ingresos);
+        double impuestosVenta = impuesto.calcularImpuestosVenta(empresa->montoVenta);
+        double impuestosTotales = impuestosIngresos + impuestosVenta;
+
+        cout << "Impuestos de Ingresos: " << impuestosIngresos << endl;
+        cout << "Impuestos de Venta: " << impuestosVenta << endl;
+        cout << "Impuestos totales: " << impuestosTotales << endl;
+    }
+    else {
+        cout << "No se encontró ninguna empresa con el RUC ingresado." << endl;
+    }
 }
 
 //Opcion 3
@@ -107,17 +138,12 @@ void MenuEmpresa::verEstadoImpuestosEmpresa(Lista<Empresa*>* lst) const
     cout << endl;
 }
 
-//Opcion 4
-void MenuEmpresa::generarReporteEmpresa() const
-{
-    cout << "Opcion 4: Generar reporte de empresas" << endl;
-    cout << endl;
-}
 
-//Opcion 5
+
+//Opcion 4
 void MenuEmpresa::mostrarEmpresas(Lista<Empresa*>* lst) const
 {
-    cout << "Opcion 5: Mostrar empresas afiliadas." << endl;
+    cout << "Opcion 4: Mostrar empresas afiliadas." << endl;
     cout << endl;
     if (lst->esVacia()) {
         cout << "No hay empresas para mostrar." << endl;
@@ -138,11 +164,11 @@ void MenuEmpresa::mostrarEmpresas(Lista<Empresa*>* lst) const
     }
 }
 
-//Opcion 6
+//Opcion 4
 void MenuEmpresa::ordenarEmpresas(Lista<Empresa*>* lst) const
 {   
     int opcionOrdenamiento;
-    cout << "Opcion 6: Ordenar Empresas." << endl;
+    cout << "Opcion 5: Ordenar Empresas." << endl;
     cout << endl;
     do {
         cout << "¿Por qué criterio desea ordenar?" << endl;
@@ -163,10 +189,10 @@ void MenuEmpresa::ordenarEmpresas(Lista<Empresa*>* lst) const
     } while (opcionOrdenamiento < 1 || opcionOrdenamiento > 2);   
 }
 
-//Opcion 7
+//Opcion 6
 void MenuEmpresa::guardarDatosEmpresas(Lista<Empresa*>* lst) const
 {
-    cout << "Opcion 7 : Guardar datos recopilados en archivo" << endl;
+    cout << "Opcion 6: Guardar datos recopilados en archivo" << endl;
     cout << endl;
     ofstream arch("ListaEmpresas.txt", ios::out);
     if (not arch.is_open()) {
