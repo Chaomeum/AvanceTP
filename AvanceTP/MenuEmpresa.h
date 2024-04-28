@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <iomanip>
+#include <fstream>
 #include "Menu.h"
 #include "lista.hpp"
 #include "Empresa.h"
@@ -22,6 +23,6 @@ private:
     void generarReporteEmpresa() const;                         //Opcion 4
     void mostrarEmpresas(Lista<Empresa*>* lst) const;           //Opcion 5
     void ordenarEmpresas(Lista<Empresa*>* lst) const;           //Opcion 6
-    void guardarDatosEmpresas() const;                          //Opcion 7
+    void guardarDatosEmpresas(Lista<Empresa*>* lst) const;                          //Opcion 7
 };  
 

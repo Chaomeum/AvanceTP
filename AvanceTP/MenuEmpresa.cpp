@@ -44,7 +44,7 @@ void MenuEmpresa::opcionSeleccionada(int opcion) const
         ordenarEmpresas(lst);
         break;
     case 7:
-        guardarDatosEmpresas();
+        guardarDatosEmpresas(lst);
         break;
     }
 }
@@ -52,6 +52,8 @@ void MenuEmpresa::opcionSeleccionada(int opcion) const
 //Opcion 1
 void MenuEmpresa::agregarNuevaEmpresa(Lista<Empresa*>* lst) const
 {
+    cout << "Opcion 1: Agregar una nueva empresa" << endl;
+    cout << endl;
     Empresa* empresa = new Empresa();
     cout << "Ingrese el nombre de la empresa: ";
     cin >> empresa->nombre;
@@ -94,19 +96,22 @@ void MenuEmpresa::agregarNuevaEmpresa(Lista<Empresa*>* lst) const
 //Opcion 2
 void MenuEmpresa::calcularImpuestosEmpresa(Lista<Empresa*>* lst) const
 {
-    cout << "Opcion 2" << endl;
+    cout << "Opcion 2: Calcular impuestos por empresa" << endl;
+    cout << endl; 
 }
 
 //Opcion 3
 void MenuEmpresa::verEstadoImpuestosEmpresa(Lista<Empresa*>* lst) const
 {
-    cout << "Opcion 3" << endl;
+    cout << "Opcion 3: Ver estado de impuestos de empresas" << endl;
+    cout << endl;
 }
 
 //Opcion 4
 void MenuEmpresa::generarReporteEmpresa() const
 {
-    cout << "Opcion 4" << endl;
+    cout << "Opcion 4: Generar reporte de empresas" << endl;
+    cout << endl;
 }
 
 //Opcion 5
@@ -159,7 +164,27 @@ void MenuEmpresa::ordenarEmpresas(Lista<Empresa*>* lst) const
 }
 
 //Opcion 7
-void MenuEmpresa::guardarDatosEmpresas() const
+void MenuEmpresa::guardarDatosEmpresas(Lista<Empresa*>* lst) const
 {
-    cout << "Opcion 7" << endl;
+    cout << "Opcion 7 : Guardar datos recopilados en archivo" << endl;
+    cout << endl;
+    ofstream arch("ListaEmpresas.txt", ios::out);
+    if (not arch.is_open()) {
+        cout << "ERROR: No se pudo abrir el archivo ListaEmpresas.txt" << endl;
+        exit(1);
+    }
+    arch << "Informacion recopilada sobre empresas en el gestor de impuestos" << endl;
+    for (int i = 0; i < 75; i++) arch << "-";
+    arch << endl;
+    arch << "Nombre" << setw(13) << "Numero RUC" << setw(13) << "Ingresos" << setw(15) << "Monto Venta"
+        << setw(10) << "Ciudad" << setw(18) << "Estado deudor" << endl;
+    for (int i = 0; i < 75; i++) arch << "-";
+    arch << endl;
+
+    for (int i = 0; i < lst->longitud(); i++)
+    {
+        Empresa* e = lst->obtenerPos(i);
+        arch << e->nombre << setw(8) << e->RUC << setw(15) << e->ingresos << setw(13) <<
+            e->montoVenta << setw(12) << e->ciudad << setw(16) << e->estadoDeudor << endl;
+    }
 }

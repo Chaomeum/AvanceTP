@@ -40,7 +40,7 @@ void MenuIndividuo::opcionSeleccionada(int opcion) const
             ordenarContribuyentes(lst);
             break;
         case 6:
-            guardarDatosContribuyentes();
+            guardarDatosContribuyentes(lst);
             break;
         case 7:
             cargarDatosContribuyentes();
@@ -179,9 +179,28 @@ void MenuIndividuo::ordenarContribuyentes(Lista<CContribuyente*>* lst) const
 }
 
 //Opcion 6
-void MenuIndividuo::guardarDatosContribuyentes() const
+void MenuIndividuo::guardarDatosContribuyentes(Lista<CContribuyente*>* lst) const
 {
-    cout << "Guardar Datos Contribuyentes en un archivo" << endl;
+    cout << "Opcion 6: Guardar Datos Contribuyentes en un archivo" << endl;
+    cout << endl;
+    ofstream arch("listaContribuyentes.txt", ios::out);
+    if (not arch.is_open()) {
+        cout << "ERROR: No se pudo abrir el archivo listaContribuyentes.txt" << endl;
+        exit(1);
+    }
+    arch << "Informacion recopilada sobre contribuyentes en el gestor de impuestos" << endl;
+    for (int i = 0; i < 50; i++) arch << "-";
+    arch << endl;
+    arch << "Nombre" << setw(13) << "Numero ID" << setw(13) << "Ingresos" << setw(15) << "Monto Venta" << endl;
+    for (int i = 0; i < 50; i++) arch << "-";
+    arch << endl;
+
+    for (int i = 0; i < lst->longitud(); i++)
+    {
+        CContribuyente* e = lst->obtenerPos(i);
+        arch << e->nombre << setw(8) << e->id << setw(15) << e->ingresos << setw(13) <<
+            e->montoVenta << endl;
+    }
 }
 
 //Opcion 7

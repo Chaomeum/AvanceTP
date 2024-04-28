@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <iomanip>
+#include <fstream>
 #include "Menu.h"
 #include "lista.hpp"
 #include "Contribuyente.h"
@@ -22,7 +23,7 @@ private:
     void generarReporteContribuyentes() const;                              //Opcion 3
     void mostrarContribuyentes(Lista<CContribuyente*>* lst) const;          //Opcion 4
     void ordenarContribuyentes(Lista<CContribuyente*>* lst) const;          //Opcion 5
-    void guardarDatosContribuyentes() const;                                //Opcion 6
+    void guardarDatosContribuyentes(Lista<CContribuyente*>* lst) const;     //Opcion 6
     void cargarDatosContribuyentes() const;                                 //Opcion 7
 };
 
