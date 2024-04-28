@@ -32,17 +32,18 @@ int main() {
 
 	//Creacion de instancias para mostrar el menu correspondiente a la opcion elegida
 	Menu* menu = nullptr;
-	
+
+	//Se crean las listas que gestionaran los datos de cada tipo de usuario
 	Lista<Empresa*>* lstEmpresa = new Lista<Empresa*> ;
 	Lista<CContribuyente*>* lstContribuyente = new Lista<CContribuyente*> ;
 
 	switch (opcion) {
-	case 1:
-		cout << "Mostrar menu individuo" << endl;
-		menu = new MenuIndividuo(lstContribuyente);
+	case 1:		
+		//se pasa la lista Contribuyete como parametro en el constructor de menuIndividuo
+		menu = new MenuIndividuo(lstContribuyente); 
 		break;
-	case 2:
-		cout << "Mostrar menu empresa" << endl;
+	case 2:		
+		//se pasa la lista Empresa como parametro en el constructor de menuEmpresa
 		menu = new MenuEmpresa(lstEmpresa);
 		break;
 	case 3:
@@ -57,9 +58,10 @@ int main() {
 	do {
 		if (menu != nullptr) {
 			menu->mostrarMenu();
-			cout << "Ingrese el número de la opción que desea: ";
+			cout << "Ingrese la operacion que desee ejecutar: ";
 			cin >> operacion;
-			menu->opcionSeleccionada(operacion);			
+			menu->opcionSeleccionada(operacion);	
+			cout << endl;
 		}
 	} while (operacion != 8);
 	delete menu;

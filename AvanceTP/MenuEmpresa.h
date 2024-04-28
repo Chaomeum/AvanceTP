@@ -1,7 +1,10 @@
 #pragma once
+#include <iostream>
+#include <iomanip>
 #include "Menu.h"
 #include "lista.hpp"
 #include "Empresa.h"
+using namespace std;
 
 class MenuEmpresa : public Menu
 {

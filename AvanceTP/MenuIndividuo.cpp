@@ -2,7 +2,11 @@
 
 void MenuIndividuo::mostrarMenu() const
 {
-    cout << "===== MENU INDIVIDUO =====" << endl;
+    for (int i = 0; i < 46; i++) cout << "-";
+    cout << endl;
+    cout << setw(31) <<"MENU INDIVIDUO" << endl;
+    for (int i = 0; i < 46; i++) cout << "-";
+    cout << endl;
     cout << "1.- Agregar un nuevo contribuyente." << endl;
     cout << "2.- Calcular impuestos para un contribuyente." << endl;
     cout << "3.- Generar reporte de impuestos." << endl;
@@ -11,10 +15,14 @@ void MenuIndividuo::mostrarMenu() const
     cout << "6.- Guardar datos en archivo." << endl;
     cout << "7.- Cargar datos desde archivo." << endl;
     cout << "8.- Salir del programa." << endl;
+    for (int i = 0; i < 46; i++) cout << "-";
+    cout << endl;
 }
 
 void MenuIndividuo::opcionSeleccionada(int opcion) const
 {
+    for (int i = 0; i < 46; i++) cout << "-";
+    cout << endl;
     switch (opcion) {
         case 1:
             agregarNuevoContribuyente(lst);
@@ -44,16 +52,16 @@ void MenuIndividuo::opcionSeleccionada(int opcion) const
 void MenuIndividuo::agregarNuevoContribuyente(Lista<CContribuyente*>* lst) const
 {
     CContribuyente* contribuyente = new CContribuyente();
-    cout << "Ingresar Nombre:";
+    cout << "Ingrese el nombre del contribuyente: ";
     cin >> contribuyente->nombre;
 
-    cout << "Ingrese el numero de id:";
+    cout << "Ingrese el numero de ID: ";
     cin >> contribuyente->id;
 
-    cout << "Ingrese el numero de ingresos:";
+    cout << "Ingrese el numero de ingresos: ";
     cin >> contribuyente->ingresos;
 
-    cout << "Ingrese el numero de monto de venta:";
+    cout << "Ingrese el numero de monto de venta: ";
     cin >> contribuyente->montoVenta;
 
     bool idOcupada = false;
@@ -67,10 +75,10 @@ void MenuIndividuo::agregarNuevoContribuyente(Lista<CContribuyente*>* lst) const
 
     if (!idOcupada) {
         lst->agregaInicial(contribuyente);
-        cout << "Contribuyente agregado con exito." << endl;
+        cout << "El contribuyente fue agregado con exito." << endl;
     }
     else {
-        cout << "Lo siento, la id que ingreso ya esta ocupada." << endl;
+        cout << "Lo sentimos, la ID que ingreso ya esta ocupada." << endl;
         delete contribuyente;
     }
 }
@@ -121,7 +129,6 @@ void MenuIndividuo::generarReporteContribuyentes() const
 //Opcion 4
 void MenuIndividuo::mostrarContribuyentes(Lista<CContribuyente*>* lst) const
 {
-    cout << "Metodo para mostrar contribuyentes" << endl;
     if (lst->esVacia()) {
         cout << "No hay contribuyentes para mostrar." << endl;
         return;

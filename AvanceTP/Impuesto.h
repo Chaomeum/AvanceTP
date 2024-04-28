@@ -14,32 +14,31 @@ public:
 	};
 	void setNombre(std::string nombre) { this->nombre = nombre; }
 	string getNombre() const { return nombre; }
+    //Recursividad
+    double calcularImpuestosPorIngresos(double ingresos) {
 
-    double calcularImpuestosPorIngresos(double ingresos) const {
-        double impuestos = 0.0;
-        if (ingresos >= 1000 && ingresos < 2000) {
-            impuestos = ingresos * 0.10; // 10% de impuestos
+        if (ingresos < 2000) {
+            return ingresos * 0.10; // 10% de impuestos
         }
         else if (ingresos >= 2000 && ingresos < 4000) {
-            impuestos = ingresos * 0.20; // 20% de impuestos
+            return ingresos * 0.20 + calcularImpuestosPorIngresos(ingresos - 2000); // 20% de impuestos
         }
-        else if (ingresos >= 4000) {
-            impuestos = ingresos * 0.30; // 30% de impuestos
+        else {
+            return ingresos * 0.30 + calcularImpuestosPorIngresos(ingresos - 4000); // 30% de impuestos
         }
-        return impuestos;
     }
 
-    double calcularImpuestosVenta(double montoVenta) const {
-        double impuestos = 0.0;
-        if (montoVenta >= 100 && montoVenta < 200) {
-            impuestos = montoVenta * 0.02; // 2% de impuestos
+    //Recursividad
+    double calcularImpuestosVenta(double montoVenta) {
+
+        if (montoVenta < 200) {
+            return montoVenta * 0.02; // 2% de impuestos
         }
         else if (montoVenta >= 200 && montoVenta < 400) {
-            impuestos = montoVenta * 0.04; // 4% de impuestos
+            return montoVenta * 0.04 + calcularImpuestosVenta(montoVenta - 200); // 4% de impuestos
         }
-        else if (montoVenta >= 400) {
-            impuestos = montoVenta * 0.06; // 6% de impuestos
+        else {
+            return montoVenta * 0.06 + calcularImpuestosVenta(montoVenta - 400); // 6% de impuestos
         }
-        return impuestos;
     }
 };
