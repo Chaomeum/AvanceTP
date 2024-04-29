@@ -1,0 +1,701 @@
+Cola de empresas:
+Nombre:	Powlowski_Inc
+Numero de RUC:	20090
+Numero de ingresos:	47586.9
+Numero de monto de venta:	32656.8
+Nombre de ciudad:	Chubek
+Estado deudor:	false
+
+Nombre:	Pfannerstill-Lakin
+Numero de RUC:	20414
+Numero de ingresos:	82322
+Numero de monto de venta:	2078.05
+Nombre de ciudad:	San_Luis
+Estado deudor:	true
+
+Nombre:	O'Conner-Medhurst
+Numero de RUC:	20013
+Numero de ingresos:	81556
+Numero de monto de venta:	13818
+Nombre de ciudad:	Cibunar
+Estado deudor:	true
+
+Nombre:	Mertz_LLC
+Numero de RUC:	20092
+Numero de ingresos:	56120.3
+Numero de monto de venta:	19609.4
+Nombre de ciudad:	Henglin
+Estado deudor:	true
+
+Nombre:	Dietrich-McGlynn
+Numero de RUC:	20519
+Numero de ingresos:	12340.4
+Numero de monto de venta:	43603.9
+Nombre de ciudad:	Potęgowo
+Estado deudor:	true
+
+Nombre:	Glover-Nicolas
+Numero de RUC:	20858
+Numero de ingresos:	19960.6
+Numero de monto de venta:	14119
+Nombre de ciudad:	Vuka
+Estado deudor:	true
+
+Nombre:	Adams_Group
+Numero de RUC:	20671
+Numero de ingresos:	45332.3
+Numero de monto de venta:	10228
+Nombre de ciudad:	Santo_Amaro
+Estado deudor:	false
+
+Nombre:	Mills_LLC
+Numero de RUC:	20355
+Numero de ingresos:	10941.9
+Numero de monto de venta:	13981
+Nombre de ciudad:	Sanjiang
+Estado deudor:	false
+
+Nombre:	Feil_Group
+Numero de RUC:	20737
+Numero de ingresos:	77880.7
+Numero de monto de venta:	29528.7
+Nombre de ciudad:	San_Esteban
+Estado deudor:	false
+
+Nombre:	Rippin-Rodriguez
+Numero de RUC:	20487
+Numero de ingresos:	53098.7
+Numero de monto de venta:	38111.5
+Nombre de ciudad:	Jieznas
+Estado deudor:	false
+
+Nombre:	Little_and_Sons
+Numero de RUC:	20504
+Numero de ingresos:	84399
+Numero de monto de venta:	15500.8
+Nombre de ciudad:	Providence
+Estado deudor:	true
+
+Nombre:	Kuhlman_Group
+Numero de RUC:	20998
+Numero de ingresos:	90972.6
+Numero de monto de venta:	42954.9
+Nombre de ciudad:	Hongtang
+Estado deudor:	true
+
+Nombre:	Hermann-Barrows
+Numero de RUC:	20296
+Numero de ingresos:	95655.8
+Numero de monto de venta:	36907.9
+Nombre de ciudad:	Verkhov’ye
+Estado deudor:	true
+
+Nombre:	Reinger_Inc
+Numero de RUC:	20012
+Numero de ingresos:	79664.8
+Numero de monto de venta:	41254
+Nombre de ciudad:	Kujama
+Estado deudor:	false
+
+Nombre:	Gleichner_Veum_and_Heathcote
+Numero de RUC:	20909
+Numero de ingresos:	44316.7
+Numero de monto de venta:	19730.9
+Nombre de ciudad:	Gayamsari
+Estado deudor:	false
+
+Nombre:	Schowalter_Daugherty_and_Labadie
+Numero de RUC:	20836
+Numero de ingresos:	58623.4
+Numero de monto de venta:	10754.8
+Nombre de ciudad:	Tonga
+Estado deudor:	false
+
+Nombre:	Spencer_Rice_and_Ortiz
+Numero de RUC:	20755
+Numero de ingresos:	84950.6
+Numero de monto de venta:	31575.4
+Nombre de ciudad:	Munduk
+Estado deudor:	false
+
+Nombre:	Haag_Group
+Numero de RUC:	20808
+Numero de ingresos:	60002.6
+Numero de monto de venta:	45285.2
+Nombre de ciudad:	Huangdao
+Estado deudor:	false
+
+Nombre:	Satterfield_Hammes_and_Crist
+Numero de RUC:	20143
+Numero de ingresos:	29588.9
+Numero de monto de venta:	49121.6
+Nombre de ciudad:	Kizlyar
+Estado deudor:	false
+
+Nombre:	Kunze_and_Sons
+Numero de RUC:	20149
+Numero de ingresos:	38740.2
+Numero de monto de venta:	9565.35
+Nombre de ciudad:	Gagarin
+Estado deudor:	true
+
+Nombre:	Fahey_Larson_and_Cole
+Numero de RUC:	20190
+Numero de ingresos:	64563.1
+Numero de monto de venta:	14121.5
+Nombre de ciudad:	Yuetang
+Estado deudor:	false
+
+Nombre:	Block_Abernathy_and_Hand
+Numero de RUC:	20288
+Numero de ingresos:	91606.3
+Numero de monto de venta:	30596.7
+Nombre de ciudad:	Oja
+Estado deudor:	true
+
+Nombre:	Ryan-McGlynn
+Numero de RUC:	20407
+Numero de ingresos:	45194.2
+Numero de monto de venta:	4523.24
+Nombre de ciudad:	Canggang
+Estado deudor:	false
+
+Nombre:	Hagenes_and_Sons
+Numero de RUC:	20262
+Numero de ingresos:	99495.4
+Numero de monto de venta:	1801.05
+Nombre de ciudad:	Tucson
+Estado deudor:	true
+
+Nombre:	Ernser-O'Hara
+Numero de RUC:	20590
+Numero de ingresos:	31466.9
+Numero de monto de venta:	28778.5
+Nombre de ciudad:	Quva
+Estado deudor:	false
+
+Nombre:	Huels-Grant
+Numero de RUC:	20166
+Numero de ingresos:	23145
+Numero de monto de venta:	5237.9
+Nombre de ciudad:	Temirtau
+Estado deudor:	false
+
+Nombre:	Hamill_Inc
+Numero de RUC:	20614
+Numero de ingresos:	78739.2
+Numero de monto de venta:	32386.8
+Nombre de ciudad:	Zhushan
+Estado deudor:	false
+
+Nombre:	Rice_LLC
+Numero de RUC:	20512
+Numero de ingresos:	21756.1
+Numero de monto de venta:	5218.04
+Nombre de ciudad:	Ödeshög
+Estado deudor:	true
+
+Nombre:	Bosco-West
+Numero de RUC:	20052
+Numero de ingresos:	90167.8
+Numero de monto de venta:	26298.8
+Nombre de ciudad:	Tucuruí
+Estado deudor:	false
+
+Nombre:	Keebler-Mosciski
+Numero de RUC:	20163
+Numero de ingresos:	12979.5
+Numero de monto de venta:	41855.8
+Nombre de ciudad:	Otavalo
+Estado deudor:	false
+
+Nombre:	Dickens-Ziemann
+Numero de RUC:	20612
+Numero de ingresos:	52658.5
+Numero de monto de venta:	4290.88
+Nombre de ciudad:	Nefta
+Estado deudor:	true
+
+Nombre:	Trantow-Dietrich
+Numero de RUC:	20850
+Numero de ingresos:	60350.5
+Numero de monto de venta:	20131.5
+Nombre de ciudad:	Hats’avan
+Estado deudor:	false
+
+Nombre:	Pfeffer-Littel
+Numero de RUC:	20050
+Numero de ingresos:	96491.5
+Numero de monto de venta:	20323.6
+Nombre de ciudad:	Rende
+Estado deudor:	true
+
+Nombre:	Zieme-Kutch
+Numero de RUC:	20618
+Numero de ingresos:	90758.8
+Numero de monto de venta:	27757.8
+Nombre de ciudad:	Messina
+Estado deudor:	true
+
+Nombre:	Tromp-Schumm
+Numero de RUC:	20362
+Numero de ingresos:	10540.5
+Numero de monto de venta:	10419.6
+Nombre de ciudad:	Novosheshminsk
+Estado deudor:	true
+
+Nombre:	Macejkovic_LLC
+Numero de RUC:	20148
+Numero de ingresos:	49038.2
+Numero de monto de venta:	1888.3
+Nombre de ciudad:	Ukhta
+Estado deudor:	false
+
+Nombre:	Gibson_Group
+Numero de RUC:	20155
+Numero de ingresos:	73363.3
+Numero de monto de venta:	46694
+Nombre de ciudad:	Abū_Sunbul
+Estado deudor:	true
+
+Nombre:	Goldner-Beier
+Numero de RUC:	20304
+Numero de ingresos:	21604.2
+Numero de monto de venta:	41601.2
+Nombre de ciudad:	Qinling_Jieban
+Estado deudor:	true
+
+Nombre:	Bogan-Harris
+Numero de RUC:	20086
+Numero de ingresos:	90254
+Numero de monto de venta:	42154.2
+Nombre de ciudad:	Gulou
+Estado deudor:	false
+
+Nombre:	Smith_and_Sons
+Numero de RUC:	20439
+Numero de ingresos:	91165.6
+Numero de monto de venta:	25310.3
+Nombre de ciudad:	Linqu
+Estado deudor:	false
+
+Nombre:	Rodriguez-Collins
+Numero de RUC:	20176
+Numero de ingresos:	65007.4
+Numero de monto de venta:	49551.6
+Nombre de ciudad:	Caotang
+Estado deudor:	true
+
+Nombre:	Russel_LLC
+Numero de RUC:	20599
+Numero de ingresos:	63934.3
+Numero de monto de venta:	17256.3
+Nombre de ciudad:	Masindi_Port
+Estado deudor:	false
+
+Nombre:	Moen_and_Sons
+Numero de RUC:	20971
+Numero de ingresos:	15150.2
+Numero de monto de venta:	24619.8
+Nombre de ciudad:	Iperu
+Estado deudor:	true
+
+Nombre:	Hackett_Marvin_and_Kilback
+Numero de RUC:	20937
+Numero de ingresos:	12391.8
+Numero de monto de venta:	5622
+Nombre de ciudad:	Huangshan
+Estado deudor:	true
+
+Nombre:	Beahan_Inc
+Numero de RUC:	20236
+Numero de ingresos:	78322.8
+Numero de monto de venta:	42318.7
+Nombre de ciudad:	Isahaya
+Estado deudor:	true
+
+Nombre:	Jast_Schmidt_and_Hartmann
+Numero de RUC:	20920
+Numero de ingresos:	84406.2
+Numero de monto de venta:	17894.1
+Nombre de ciudad:	Sausa
+Estado deudor:	true
+
+Nombre:	Schaden-Legros
+Numero de RUC:	20899
+Numero de ingresos:	62316.3
+Numero de monto de venta:	36543
+Nombre de ciudad:	Cimuncang
+Estado deudor:	false
+
+Nombre:	Langworth_Roob_and_Reinger
+Numero de RUC:	20809
+Numero de ingresos:	79119.2
+Numero de monto de venta:	3787.11
+Nombre de ciudad:	Staroderevyankovskaya
+Estado deudor:	false
+
+Nombre:	Luettgen-Romaguera
+Numero de RUC:	20190
+Numero de ingresos:	76089.8
+Numero de monto de venta:	21629.8
+Nombre de ciudad:	Malasugui
+Estado deudor:	false
+
+Nombre:	Wolf_Kub_and_Macejkovic
+Numero de RUC:	20161
+Numero de ingresos:	97235.9
+Numero de monto de venta:	3122.89
+Nombre de ciudad:	Banjar_Taro_Kelod
+Estado deudor:	true
+
+Nombre:	Oberbrunner_Group
+Numero de RUC:	20310
+Numero de ingresos:	27405.2
+Numero de monto de venta:	4876.51
+Nombre de ciudad:	Youfang
+Estado deudor:	false
+
+Nombre:	Bergnaum_Waters_and_Adams
+Numero de RUC:	20644
+Numero de ingresos:	30074.5
+Numero de monto de venta:	26419.1
+Nombre de ciudad:	Obala
+Estado deudor:	true
+
+Nombre:	Emmerich_LLC
+Numero de RUC:	20191
+Numero de ingresos:	16958.8
+Numero de monto de venta:	27469.3
+Nombre de ciudad:	Puerto_Padre
+Estado deudor:	true
+
+Nombre:	Littel-VonRueden
+Numero de RUC:	20078
+Numero de ingresos:	34424.5
+Numero de monto de venta:	26139.3
+Nombre de ciudad:	Sinegorskiy
+Estado deudor:	true
+
+Nombre:	Skiles-O'Kon
+Numero de RUC:	20863
+Numero de ingresos:	76735.2
+Numero de monto de venta:	13618.7
+Nombre de ciudad:	Tōbetsu
+Estado deudor:	false
+
+Nombre:	Kling-Huels
+Numero de RUC:	20735
+Numero de ingresos:	77503.3
+Numero de monto de venta:	42438.3
+Nombre de ciudad:	Shiliting
+Estado deudor:	false
+
+Nombre:	Mraz_and_Sons
+Numero de RUC:	20930
+Numero de ingresos:	91746.6
+Numero de monto de venta:	35380
+Nombre de ciudad:	Montpellier
+Estado deudor:	false
+
+Nombre:	DuBuque_Mante_and_Sipes
+Numero de RUC:	20611
+Numero de ingresos:	25575.8
+Numero de monto de venta:	13450.2
+Nombre de ciudad:	Oslo
+Estado deudor:	false
+
+Nombre:	Swaniawski_and_Sons
+Numero de RUC:	20328
+Numero de ingresos:	39441.5
+Numero de monto de venta:	39777.8
+Nombre de ciudad:	Meizhuang
+Estado deudor:	true
+
+Nombre:	Purdy_Hickle_and_Walker
+Numero de RUC:	20878
+Numero de ingresos:	60565.5
+Numero de monto de venta:	44470.2
+Nombre de ciudad:	Karangagung_Timur
+Estado deudor:	true
+
+Nombre:	Hansen_Kertzmann_and_Rolfson
+Numero de RUC:	20810
+Numero de ingresos:	60159.6
+Numero de monto de venta:	18083.3
+Nombre de ciudad:	Yushu
+Estado deudor:	true
+
+Nombre:	Walter-Medhurst
+Numero de RUC:	20715
+Numero de ingresos:	47930.4
+Numero de monto de venta:	24834.4
+Nombre de ciudad:	Huacao
+Estado deudor:	false
+
+Nombre:	Bogan_and_Sons
+Numero de RUC:	20480
+Numero de ingresos:	85863.5
+Numero de monto de venta:	38328.5
+Nombre de ciudad:	Torsby
+Estado deudor:	true
+
+Nombre:	Kautzer_Baumbach_and_Ritchie
+Numero de RUC:	20930
+Numero de ingresos:	33780.2
+Numero de monto de venta:	3316.45
+Nombre de ciudad:	Brak
+Estado deudor:	true
+
+Nombre:	Leuschke_Inc
+Numero de RUC:	20128
+Numero de ingresos:	22535.3
+Numero de monto de venta:	9175.06
+Nombre de ciudad:	Ljig
+Estado deudor:	true
+
+Nombre:	McKenzie-Ryan
+Numero de RUC:	20203
+Numero de ingresos:	76033.6
+Numero de monto de venta:	22185.8
+Nombre de ciudad:	Longhe
+Estado deudor:	true
+
+Nombre:	Orn_and_Sons
+Numero de RUC:	20419
+Numero de ingresos:	27398.7
+Numero de monto de venta:	38557.1
+Nombre de ciudad:	Xiadu
+Estado deudor:	false
+
+Nombre:	Cruickshank_Berge_and_Wyman
+Numero de RUC:	20208
+Numero de ingresos:	98626.3
+Numero de monto de venta:	11148.3
+Nombre de ciudad:	Smilavichy
+Estado deudor:	true
+
+Nombre:	Fadel_Cruickshank_and_Reichel
+Numero de RUC:	20668
+Numero de ingresos:	41408.4
+Numero de monto de venta:	17680
+Nombre de ciudad:	Leon
+Estado deudor:	false
+
+Nombre:	Runte_Group
+Numero de RUC:	20036
+Numero de ingresos:	53576.2
+Numero de monto de venta:	29558.2
+Nombre de ciudad:	Trunovskoye
+Estado deudor:	true
+
+Nombre:	Wehner_Inc
+Numero de RUC:	20127
+Numero de ingresos:	82783.5
+Numero de monto de venta:	44495.5
+Nombre de ciudad:	Haradok
+Estado deudor:	true
+
+Nombre:	Lang_Doyle_and_Upton
+Numero de RUC:	20370
+Numero de ingresos:	15945
+Numero de monto de venta:	18421.8
+Nombre de ciudad:	Naschel
+Estado deudor:	true
+
+Nombre:	Johnston-Conroy
+Numero de RUC:	20508
+Numero de ingresos:	54082.5
+Numero de monto de venta:	40185.1
+Nombre de ciudad:	Caijiang
+Estado deudor:	false
+
+Nombre:	Goodwin_and_Sons
+Numero de RUC:	20119
+Numero de ingresos:	37853.9
+Numero de monto de venta:	29010
+Nombre de ciudad:	Tarvasjoki
+Estado deudor:	true
+
+Nombre:	White_LLC
+Numero de RUC:	20319
+Numero de ingresos:	26301.3
+Numero de monto de venta:	31957.2
+Nombre de ciudad:	Kalasin
+Estado deudor:	false
+
+Nombre:	Powlowski_LLC
+Numero de RUC:	20845
+Numero de ingresos:	57949
+Numero de monto de venta:	1432.15
+Nombre de ciudad:	Berck
+Estado deudor:	false
+
+Nombre:	Runolfsson_Heller_and_Zulauf
+Numero de RUC:	20928
+Numero de ingresos:	17797.7
+Numero de monto de venta:	33406.2
+Nombre de ciudad:	Липково
+Estado deudor:	true
+
+Nombre:	White_Littel_and_Grant
+Numero de RUC:	20655
+Numero de ingresos:	71298.2
+Numero de monto de venta:	32748.9
+Nombre de ciudad:	São_Raimundo_Nonato
+Estado deudor:	false
+
+Nombre:	Cummings_LLC
+Numero de RUC:	20997
+Numero de ingresos:	77038.8
+Numero de monto de venta:	25174.3
+Nombre de ciudad:	Daojiang
+Estado deudor:	true
+
+Nombre:	Marks_Littel_and_Feest
+Numero de RUC:	20053
+Numero de ingresos:	69502.7
+Numero de monto de venta:	45740.6
+Nombre de ciudad:	Wugui
+Estado deudor:	true
+
+Nombre:	Gerhold_Sipes_and_Kuvalis
+Numero de RUC:	20605
+Numero de ingresos:	90363.4
+Numero de monto de venta:	44995.7
+Nombre de ciudad:	Ribeiro
+Estado deudor:	true
+
+Nombre:	Runte_Kessler_and_Prohaska
+Numero de RUC:	20242
+Numero de ingresos:	32009.2
+Numero de monto de venta:	40748.3
+Nombre de ciudad:	Lakeland
+Estado deudor:	false
+
+Nombre:	Jacobs-Waters
+Numero de RUC:	20643
+Numero de ingresos:	26131.3
+Numero de monto de venta:	32686.1
+Nombre de ciudad:	Kolno
+Estado deudor:	true
+
+Nombre:	Walsh_Group
+Numero de RUC:	20608
+Numero de ingresos:	81844.2
+Numero de monto de venta:	35998.8
+Nombre de ciudad:	Hukou
+Estado deudor:	true
+
+Nombre:	Zemlak-Green
+Numero de RUC:	20407
+Numero de ingresos:	82140.4
+Numero de monto de venta:	12434.5
+Nombre de ciudad:	Varna
+Estado deudor:	false
+
+Nombre:	Brekke_Stehr_and_Boyer
+Numero de RUC:	20679
+Numero de ingresos:	71711.5
+Numero de monto de venta:	17097.3
+Nombre de ciudad:	Asempapak
+Estado deudor:	true
+
+Nombre:	Kling_Inc
+Numero de RUC:	20256
+Numero de ingresos:	37024.2
+Numero de monto de venta:	35687
+Nombre de ciudad:	Uenohara
+Estado deudor:	false
+
+Nombre:	Kiehn-Cormier
+Numero de RUC:	20075
+Numero de ingresos:	96240.4
+Numero de monto de venta:	30580
+Nombre de ciudad:	Itaocara
+Estado deudor:	false
+
+Nombre:	Mayert_and_Sons
+Numero de RUC:	20444
+Numero de ingresos:	57589.7
+Numero de monto de venta:	5657.41
+Nombre de ciudad:	Barabedang
+Estado deudor:	false
+
+Nombre:	Koss_Emard_and_Farrell
+Numero de RUC:	20685
+Numero de ingresos:	44708.2
+Numero de monto de venta:	12367.3
+Nombre de ciudad:	Nakamura
+Estado deudor:	true
+
+Nombre:	Ziemann_LLC
+Numero de RUC:	20433
+Numero de ingresos:	32602.5
+Numero de monto de venta:	48859.3
+Nombre de ciudad:	Koski_Tl
+Estado deudor:	true
+
+Nombre:	Mueller_Casper_and_Crist
+Numero de RUC:	20005
+Numero de ingresos:	25972
+Numero de monto de venta:	9699.34
+Nombre de ciudad:	Dasiping
+Estado deudor:	false
+
+Nombre:	McDermott_Orn_and_Sporer
+Numero de RUC:	20271
+Numero de ingresos:	57653.8
+Numero de monto de venta:	1457.86
+Nombre de ciudad:	Villeneuve-la-Garenne
+Estado deudor:	true
+
+Nombre:	Kihn_Bosco_and_Jerde
+Numero de RUC:	20467
+Numero de ingresos:	43360.7
+Numero de monto de venta:	2621.92
+Nombre de ciudad:	Nevinnomyssk
+Estado deudor:	false
+
+Nombre:	Ruecker_Gottlieb_and_Kemmer
+Numero de RUC:	20095
+Numero de ingresos:	29104.8
+Numero de monto de venta:	19682.4
+Nombre de ciudad:	Saint_David’s
+Estado deudor:	true
+
+Nombre:	Windler_Koch_and_Cummings
+Numero de RUC:	20470
+Numero de ingresos:	49312.4
+Numero de monto de venta:	23638.4
+Nombre de ciudad:	Macheng
+Estado deudor:	true
+
+Nombre:	Ward_Group
+Numero de RUC:	20625
+Numero de ingresos:	59039.2
+Numero de monto de venta:	33282.2
+Nombre de ciudad:	Gaotang
+Estado deudor:	false
+
+Nombre:	Hagenes_Inc
+Numero de RUC:	20468
+Numero de ingresos:	86220.6
+Numero de monto de venta:	31751.7
+Nombre de ciudad:	Soutelo
+Estado deudor:	true
+
+Nombre:	Yundt_Fritsch_and_Howell
+Numero de RUC:	20740
+Numero de ingresos:	32587
+Numero de monto de venta:	21479
+Nombre de ciudad:	Vailoatai
+Estado deudor:	true
+
+Nombre:	Kutch_LLC
+Numero de RUC:	20364
+Numero de ingresos:	85870.2
+Numero de monto de venta:	13461.1
+Nombre de ciudad:	Yongshan
+Estado deudor:	false
+

@@ -28,7 +28,7 @@ void MenuEmpresa::opcionSeleccionada(int opcion) const
         calcularImpuestosEmpresa(lst);
         break;
     case 3:
-        verEstadoImpuestosEmpresa(lst);
+        verEstadoImpuestosEmpresa(cola);
         break;   
     case 4:
         mostrarEmpresas(lst);
@@ -129,10 +129,53 @@ void MenuEmpresa::calcularImpuestosEmpresa(Lista<Empresa*>* lst) const
 }
 
 //Opcion 3
-void MenuEmpresa::verEstadoImpuestosEmpresa(Lista<Empresa*>* lst) const
+void MenuEmpresa::verEstadoImpuestosEmpresa(Cola<Empresa*>* cola) const
 {
     cout << "Opcion 3: Ver estado de impuestos de empresas" << endl;
     cout << endl;
+    ifstream arch("ArchivoEmpresas.csv", ios::in);
+    if (not arch.is_open()) {
+        cout << "ERROR: No se pudo abrir el archivo ArchivoEmpresas.csv" << endl;
+        exit(1);
+    }
+    char* ptrNombre, * ptrCiudad, *ptrEstadoDeudor, car;
+    int ruc;
+    double ingresos, monto;
+    FuncionesArch f;
+    //Cargamos datos del archivo a la cola
+    cola = new Cola<Empresa*>();
+    while (1) {
+        Empresa* empresa = new Empresa();
+        ptrNombre = f.leeCadenaExacta(arch, ',');
+        if (arch.eof()) break;
+        arch >> ruc >> car >> ingresos >> car >> monto >> car;
+        ptrCiudad = f.leeCadenaExacta(arch, ',');
+        ptrEstadoDeudor = f.leeCadenaExacta(arch, '\n');
+        empresa->nombre = ptrNombre;
+        empresa->RUC = ruc;
+        empresa->ingresos = ingresos;
+        empresa->montoVenta = monto;
+        empresa->ciudad = ptrCiudad;
+        empresa->estadoDeudor = ptrEstadoDeudor;
+
+        cola->enqueue(empresa);
+    }
+
+    //Mostramos la cola en un archivo
+    ofstream archCola("EmpresasEnCola.txt", ios::out);
+    if (not arch.is_open()) {
+        cout << "ERROR: No se pudo abrir el archivo EmpresasEnCola.txt" << endl;
+        exit(1);
+    }
+    //
+    Empresa* elem;
+    archCola << "Cola de empresas:" << endl;
+    do {
+        elem = cola->dequeue();
+        archCola << elem->ToString() << endl;
+    } while (!cola->esVacia());
+    delete cola;
+    cin.get();
 }
 
 //Opcion 4
