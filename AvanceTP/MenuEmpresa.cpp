@@ -8,7 +8,7 @@ void MenuEmpresa::mostrarMenu() const
     f.imprimeSimbolo(58, '-');
     cout << "1.- Agregar una nueva empresa." << endl;
     cout << "2.- Calcular impuestos para una empresa." << endl;
-    cout << "3.- Ver estado de declaracion de impuestos de una empresa" << endl; 
+    cout << "3.- Simular una cola a traves de un archivo" << endl; 
     cout << "4.- Ver lista de empresas miembro." << endl;
     cout << "5.- Ordenar empresas por algún criterio." << endl;
     cout << "6.- Guardar datos en archivo." << endl;
