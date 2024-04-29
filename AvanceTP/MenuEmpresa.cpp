@@ -131,7 +131,7 @@ void MenuEmpresa::calcularImpuestosEmpresa(Lista<Empresa*>* lst) const
 //Opcion 3
 void MenuEmpresa::verEstadoImpuestosEmpresa(Cola<Empresa*>* cola) const
 {
-    cout << "Opcion 3: Ver estado de impuestos de empresas" << endl;
+    cout << "Opcion 3: Simular una cola de empresas a traves de un archivo" << endl;
     cout << endl;
     ifstream arch("ArchivoEmpresas.csv", ios::in);
     if (not arch.is_open()) {
