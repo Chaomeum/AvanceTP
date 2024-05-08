@@ -10,16 +10,24 @@ typedef unsigned int uint;
 template <typename T>
 class Lista {
     struct Nodo;
-    typedef function<int(T, T)> Comp;
     Nodo*   ini;
     uint    lon; // número de elementos en la lista
-    Comp    comparar; // lambda de criterio de comparación
 
 public:
-    Lista(): ini(nullptr), lon(0), comparar([](T a,T b) {return a - b;}) {}
-    Lista(Comp comparar): ini(nullptr), lon(0), comparar(comparar) {}
+    //--------------Clase iterador--------------
+    class Iterador {
+        Nodo* aux;
+    public:
+        Iterador(Nodo* aux = nullptr) : aux(aux) {}
+        void operator ++ () { aux = aux->sig; }
+        bool operator != (Iterador it) { return aux != it.aux; }
+        T operator * () { return aux->elem; }
+    };
+    //------------Fin Clase iterador------------
+    Lista();
     ~Lista();
-
+    Iterador begin() { return Iterador(ini); };
+    Iterador end() { return Iterador(nullptr); };
     uint    longitud();
 
     bool    esVacia();
@@ -58,6 +66,12 @@ struct Lista<T>::Nodo {
 
     Nodo(T elem = nullptr, Nodo* sig = nullptr): elem(elem), sig(sig) {}
 };
+
+template <typename T>
+Lista<T>::Lista() {
+    lon = 0;
+    ini = nullptr;
+}
 
 template <typename T>
 Lista<T>::~Lista() {

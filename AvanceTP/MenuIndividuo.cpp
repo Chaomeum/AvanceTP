@@ -61,9 +61,17 @@ void MenuIndividuo::agregarNuevoContribuyente(Lista<CContribuyente*>* lst) const
     cin >> contribuyente->montoVenta;
 
     bool idOcupada = false;
-    for (int i = 0; i < lst->longitud(); i++) {
+    /*for (int i = 0; i < lst->longitud(); i++) {
         CContribuyente* e = lst->obtenerPos(i);
         if (e->id == contribuyente->id) {
+            idOcupada = true;
+            break;
+        }
+    }*/
+
+    /*Implementacion de iteradores*/
+    for (Lista<CContribuyente*>::Iterador it = lst->begin(); it != lst->end(); ++it) {
+        if ((*it)->id == contribuyente->id) {
             idOcupada = true;
             break;
         }
@@ -89,10 +97,19 @@ void MenuIndividuo::calcularImpuestosContribuyente(Lista<CContribuyente*>* lst) 
     cin >> idContribuyente;
 
     CContribuyente* contribuyente = nullptr;
-    for (int i = 0; i < lst->longitud(); i++) {
+
+    /*for (int i = 0; i < lst->longitud(); i++) {
         CContribuyente* e = lst->obtenerPos(i);
         if (e->id == idContribuyente) {
             contribuyente = e;
+            break;
+        }
+    }*/
+
+    /*Implementacion de iteradores*/
+    for (Lista<CContribuyente*>::Iterador it = lst->begin(); it != lst->end(); ++it) {
+        if ((*it)->id == idContribuyente) {
+            contribuyente = *it;
             break;
         }
     }
@@ -130,12 +147,22 @@ void MenuIndividuo::mostrarContribuyentes(Lista<CContribuyente*>* lst) const
 
     cout << "Lista de Contribuyentes:" << endl;
     cout << "---------------------------" << endl;
-    for (int i = 0; i < lst->longitud(); i++) {
+
+    /*for (int i = 0; i < lst->longitud(); i++) {
         CContribuyente* contribuyente = lst->obtenerPos(i);
         cout << "Nombre: " << contribuyente->nombre << endl;
         cout << "ID: " << contribuyente->id << endl;
         cout << "Ingresos: " << contribuyente->ingresos << endl;
         cout << "Monto de Venta: " << contribuyente->montoVenta << endl;
+        cout << "---------------------------" << endl;
+    }*/
+
+    /*Implementacion de iteradores*/
+    for (Lista<CContribuyente*>::Iterador it = lst->begin(); it != lst->end(); ++it) {
+        cout << "Nombre: " << (*it)->nombre << endl;
+        cout << "ID: " << (*it)->id << endl;
+        cout << "Ingresos: " << (*it)->ingresos << endl;
+        cout << "Monto de Venta: " << (*it)->montoVenta << endl;
         cout << "---------------------------" << endl;
     }
 }
@@ -182,11 +209,17 @@ void MenuIndividuo::guardarDatosContribuyentes(Lista<CContribuyente*>* lst) cons
     for (int i = 0; i < 50; i++) arch << "-";
     arch << endl;
 
-    for (int i = 0; i < lst->longitud(); i++)
+    /*for (int i = 0; i < lst->longitud(); i++)
     {
         CContribuyente* e = lst->obtenerPos(i);
         arch << left << setw(10) << e->nombre << right << fixed << setprecision(2) << setw(7) << e->id << setw(15)
             << e->ingresos << setw(13) << e->montoVenta << endl;
+    }*/
+
+    /* Implementacion de iteradores */
+    for (Lista<CContribuyente*>::Iterador it = lst->begin(); it != lst->end(); ++it) {
+        arch << left << setw(10) << (*it)->nombre << right << fixed << setprecision(2) << setw(7) << (*it)->id << setw(15)
+            << (*it)->ingresos << setw(13) << (*it)->montoVenta << endl;
     }
 }
 

@@ -67,10 +67,18 @@ void MenuEmpresa::agregarNuevaEmpresa(Lista<Empresa*>* lst) const
     cin >> empresa->estadoDeudor;
 
     bool rucOcupada = false;
-    for (int i = 0; i < lst->longitud(); i++)
+    /*for (int i = 0; i < lst->longitud(); i++)
     {
         Empresa* b = lst->obtenerPos(i);
         if (b->RUC == empresa->RUC) {
+            rucOcupada = true;
+            break;
+        }
+    }*/
+
+    /*Implementacion de iteradores*/
+    for (Lista<Empresa*>::Iterador it = lst->begin(); it != lst->end(); ++it) {
+        if ((*it)->RUC == empresa->RUC) {
             rucOcupada = true;
             break;
         }
@@ -96,11 +104,20 @@ void MenuEmpresa::calcularImpuestosEmpresa(Lista<Empresa*>* lst) const
     cin >> rucEmpresa;
 
     Empresa* empresa = nullptr;
-    for (int i = 0; i < lst->longitud(); i++)
+
+    /*for (int i = 0; i < lst->longitud(); i++)
     {
         Empresa* e = lst->obtenerPos(i);
         if (e->RUC == rucEmpresa) {
             empresa = e;
+            break;
+        }
+    }*/
+
+    /*Implementacion de iteradores*/
+    for (Lista<Empresa*>::Iterador it = lst->begin(); it != lst->end(); ++it) {
+        if ((*it)->RUC == rucEmpresa) {
+            empresa = *it;
             break;
         }
     }
@@ -190,7 +207,8 @@ void MenuEmpresa::mostrarEmpresas(Lista<Empresa*>* lst) const
 
     cout << "Lista de empresas afiliadas:" << endl;
     cout << "---------------------------" << endl;
-    for (int i = 0; i < lst->longitud(); i++) {
+
+    /*for (int i = 0; i < lst->longitud(); i++) {
         Empresa* empresa = lst->obtenerPos(i);
         cout << "Nombre: " << empresa->nombre << endl;
         cout << "RUC: " << empresa->RUC << endl;
@@ -198,6 +216,17 @@ void MenuEmpresa::mostrarEmpresas(Lista<Empresa*>* lst) const
         cout << "Monto de Venta: " << empresa->montoVenta << endl;
         cout << "Ciudad: " << empresa->ciudad << endl;
         cout << "Estado deudor: " << empresa->estadoDeudor << endl;
+        cout << "---------------------------" << endl;
+    }*/
+
+    /*Implementacion de iteradores*/
+    for (Lista<Empresa*>::Iterador it = lst->begin(); it != lst->end(); ++it) {
+        cout << "Nombre: " << (*it)->nombre << endl;
+        cout << "RUC: " << (*it)->RUC << endl;
+        cout << "Ingresos: " << (*it)->ingresos << endl;
+        cout << "Monto de Venta: " << (*it)->montoVenta << endl;
+        cout << "Ciudad: " << (*it)->ciudad << endl;
+        cout << "Estado deudor: " << (*it)->estadoDeudor << endl;
         cout << "---------------------------" << endl;
     }
 }
@@ -244,10 +273,16 @@ void MenuEmpresa::guardarDatosEmpresas(Lista<Empresa*>* lst) const
         << setw(10) << "Ciudad" << setw(18) << "Estado deudor" << endl;
     f.imprimeSimbolo(75, '-');
 
-    for (int i = 0; i < lst->longitud(); i++)
+    /*for (int i = 0; i < lst->longitud(); i++)
     {
         Empresa* e = lst->obtenerPos(i);
         arch << e->nombre << setw(8) << e->RUC << setw(15) << e->ingresos << setw(13) <<
             e->montoVenta << setw(12) << e->ciudad << setw(16) << e->estadoDeudor << endl;
+    }*/
+
+    /*Implementacion de iteradores*/
+    for (Lista<Empresa*>::Iterador it = lst->begin(); it != lst->end(); ++it) {
+        arch << (*it)->nombre << setw(8) << (*it)->RUC << setw(15) << (*it)->ingresos << setw(13) <<
+            (*it)->montoVenta << setw(12) << (*it)->ciudad << setw(16) << (*it)->estadoDeudor << endl;
     }
 }

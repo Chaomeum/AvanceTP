@@ -28,6 +28,16 @@ int main() {
 		cout << "Escriba la opcion aqui: ";
 		cin >> opcion;
 
+		// Verificar si la entrada falló
+		if (cin.fail()) {
+			cout << "Opcion invalida. Por favor ingrese un numero entero." << endl;
+			cout << endl;
+			// Limpiar el estado de error de cin y descartar el buffer de entrada
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			continue; // Volver al principio del bucle
+		}
+
 		if (opcion < 1 || opcion > 3) {
 			cout << "Opcion invalida. Por favor, ingrese una opcion valida." << endl << endl;
 		}
@@ -64,6 +74,17 @@ int main() {
 			menu->mostrarMenu();
 			cout << "Ingrese la operacion que desee ejecutar: ";
 			cin >> operacion;
+
+			// Verificar si la entrada falló
+			if (cin.fail()) {
+				cout << "Opcion invalida. Por favor ingrese un numero entero." << endl;
+				cout << endl;
+				// Limpiar el estado de error de cin y descartar el buffer de entrada
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				continue; // Volver al principio del bucle
+			}
+
 			menu->opcionSeleccionada(operacion);	
 			cout << endl;
 		}

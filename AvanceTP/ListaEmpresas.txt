@@ -1,7 +1,5 @@
 Informacion recopilada sobre empresas en el gestor de impuestos
----------------------------------------------------------------------------
 Nombre   Numero RUC     Ingresos    Monto Venta    Ciudad     Estado deudor
----------------------------------------------------------------------------
-EmpresaA       1          75000        25000        Lima          Limpio
-EmpresaB       2          50000        40000        Lima        NoLimpio
-EmpresaC       3          80000        50000        Lima          Limpio
+EmpresaC       3          80000        40000        Lima            true
+EmpresaB       2          50000        40000        Lima           false
+EmpresaA       1          75000        25000        Lima            true
