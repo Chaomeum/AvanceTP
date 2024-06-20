@@ -127,18 +127,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ArbolBinario.cpp" />
     <ClCompile Include="Empresa.cpp" />
     <ClCompile Include="FuncionesArch.cpp" />
+    <ClCompile Include="HashTabla.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MenuEmpresa.cpp" />
     <ClCompile Include="MenuIndividuo.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ArbolBinario.h" />
     <ClInclude Include="Cola.h" />
     <ClInclude Include="Contribuyente.h" />
     <ClInclude Include="Empresa.h" />
     <ClInclude Include="FuncionesArch.h" />
+    <ClInclude Include="HashTabla.h" />
     <ClInclude Include="Impuesto.h" />
     <ClInclude Include="lista.hpp" />
     <ClInclude Include="Menu.h" />

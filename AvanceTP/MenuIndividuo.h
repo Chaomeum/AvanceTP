@@ -4,6 +4,7 @@
 #include <fstream>
 #include "Menu.h"
 #include "lista.hpp"
+#include "HashTabla.h"
 #include "FuncionesArch.h"
 #include "Contribuyente.h"
 using namespace std;
@@ -12,9 +13,11 @@ class MenuIndividuo : public Menu
 {
 private:
     Lista<CContribuyente*>* lst;
+    HashTabla<CContribuyente>* hashTabla;   
 
 public:
     MenuIndividuo(Lista<CContribuyente*>* lista) : lst(lista) {}
+    MenuIndividuo(HashTabla<CContribuyente>* ht) : hashTabla(ht) {}
     void mostrarMenu() const override;
     void opcionSeleccionada(int opcion) const override;
 

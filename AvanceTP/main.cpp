@@ -9,6 +9,9 @@
 #include "Menu.h"
 #include "MenuIndividuo.h"
 #include "MenuEmpresa.h"
+#include "HashTabla.h"
+#include "ArbolBinario.h"
+
 using namespace std;
 
 int main() {
