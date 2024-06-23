@@ -9,8 +9,6 @@
 
 using namespace std;
 
-typedef unsigned int size_t;
-
 template <typename HashedObj>
 class HashTabla {
 private:
@@ -126,7 +124,7 @@ private:
         for (char ch : key)
             hashVal = 37 * hashVal + ch;
 
-        return hashVal;
+        return abs(hashVal);
     }
 
     size_t hash(int key) const {
@@ -142,6 +140,4 @@ private:
     }
 };
 
-#endif // !__HASHTABLA_HPP__
-
-
+#endif // !__HASHTABLA_HPP__\

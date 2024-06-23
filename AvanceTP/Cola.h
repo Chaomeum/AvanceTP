@@ -18,7 +18,7 @@ public:
 	void enqueue(T v);
 	T dequeue();
 	bool esVacia();
-	
+
 };
 
 template<class T>
@@ -30,14 +30,14 @@ template<class T>
 void Cola<T>::enqueue(T v) {
 	Nodo<T>* nodo = new Nodo<T>(v);
 	if (esVacia()) {
-		inicio = nodo;		
+		inicio = nodo;
 		fin = inicio;
 	}
 	else {
 
 		fin->siguiente = nodo;
 		fin = nodo;
-	}	
+	}
 	nodo = NULL;
 }
 

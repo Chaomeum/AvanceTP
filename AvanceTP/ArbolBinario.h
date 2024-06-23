@@ -67,7 +67,7 @@ private:
 		}
 	}
 	void _enOrden(NodoArb<T>* nodo) {
-		if (nodo != nullptr) return;
+		if (nodo == nullptr) return;
 		_enOrden(nodo->izq);
 		procesar(nodo->elemento);
 		_enOrden(nodo->der);

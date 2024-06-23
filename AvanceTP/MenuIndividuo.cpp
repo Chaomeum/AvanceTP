@@ -3,8 +3,8 @@
 void MenuIndividuo::mostrarMenu() const
 {
     FuncionesArch f;
-    f.imprimeSimbolo(46, '-');  
-    cout << setw(31) <<"MENU INDIVIDUO" << endl;
+    f.imprimeSimbolo(46, '-');
+    cout << setw(31) << "MENU INDIVIDUO" << endl;
     f.imprimeSimbolo(46, '-');
     cout << "1.- Agregar un nuevo contribuyente." << endl;
     cout << "2.- Calcular impuestos para un contribuyente." << endl;
@@ -21,32 +21,32 @@ void MenuIndividuo::opcionSeleccionada(int opcion) const
     FuncionesArch f;
     f.imprimeSimbolo(46, '-');
     switch (opcion) {
-        case 1:
-            agregarNuevoContribuyente(lst);
-            break;
-        case 2:
-            calcularImpuestosContribuyente(lst);
-            break;
-        case 3:
-            mostrarContribuyentes(lst);
-            break;
-        case 4:
-            ordenarContribuyentes(lst);
-            break;
-        case 5:
-            guardarDatosContribuyentes(lst);
-            break;
-        case 6:
-            cargarDatosContribuyentes(lst);
-            break;
+    case 1:
+        agregarNuevoContribuyente(lst, arb);
+        break;
+    case 2:
+        calcularImpuestosContribuyente(lst);
+        break;
+    case 3:
+        mostrarContribuyentes(lst, arb);
+        break;
+    case 4:
+        ordenarContribuyentes(lst);
+        break;
+    case 5:
+        guardarDatosContribuyentes(lst);
+        break;
+    case 6:
+        cargarDatosContribuyentes(lst);
+        break;
     }
 }
 
 //Opcion 1
-void MenuIndividuo::agregarNuevoContribuyente(Lista<CContribuyente*>* lst) const
+void MenuIndividuo::agregarNuevoContribuyente(Lista<CContribuyente*>* lst, ArbolBB<CContribuyente*>* arb) const
 {
-    cout << "Opcion 1: Agregar un nuevo contribuyente" << endl;    
-    cout << endl;    
+    cout << "Opcion 1: Agregar un nuevo contribuyente" << endl;
+    cout << endl;
     CContribuyente* contribuyente = new CContribuyente();
     cout << "Ingrese el nombre del contribuyente: ";
     cin >> contribuyente->nombre;
@@ -77,8 +77,10 @@ void MenuIndividuo::agregarNuevoContribuyente(Lista<CContribuyente*>* lst) const
         }
     }
 
+
     if (!idOcupada) {
         lst->agregaInicial(contribuyente);
+        arb->insertar(contribuyente);
         cout << "El contribuyente fue agregado con exito." << endl;
     }
     else {
@@ -136,35 +138,45 @@ void MenuIndividuo::calcularImpuestosContribuyente(Lista<CContribuyente*>* lst) 
 }
 
 //Opcion 3
-void MenuIndividuo::mostrarContribuyentes(Lista<CContribuyente*>* lst) const
+void MenuIndividuo::mostrarContribuyentes(Lista<CContribuyente*>* lst, ArbolBB<CContribuyente*>* arb) const
 {
+    int opcionOrdenamiento;
     cout << "Opcion 3: Mostrar contribuyentes." << endl;
     cout << endl;
     if (lst->esVacia()) {
         cout << "No hay contribuyentes para mostrar." << endl;
         return;
     }
+    do {
+        cout << "¿Por que criterio desea mostrar a los contribuyentes?" << endl;
+        cout << "1.- Mediante listas." << endl;
+        cout << "2.- Mediante Arbol Binario." << endl << endl;
+        cin >> opcionOrdenamiento;
+        if (opcionOrdenamiento == 1) {
 
-    cout << "Lista de Contribuyentes:" << endl;
-    cout << "---------------------------" << endl;
+            cout << "Lista de Contribuyentes :" << endl;
+            cout << "---------------------------" << endl;
+            /*Implementacion de iteradores*/
+            for (Lista<CContribuyente*>::Iterador it = lst->begin(); it != lst->end(); ++it) {
+                cout << "Nombre: " << (*it)->nombre << endl;
+                cout << "ID: " << (*it)->id << endl;
+                cout << "Ingresos: " << (*it)->ingresos << endl;
+                cout << "Monto de Venta: " << (*it)->montoVenta << endl;
+                cout << "---------------------------" << endl;
+            }
 
-    /*for (int i = 0; i < lst->longitud(); i++) {
-        CContribuyente* contribuyente = lst->obtenerPos(i);
-        cout << "Nombre: " << contribuyente->nombre << endl;
-        cout << "ID: " << contribuyente->id << endl;
-        cout << "Ingresos: " << contribuyente->ingresos << endl;
-        cout << "Monto de Venta: " << contribuyente->montoVenta << endl;
-        cout << "---------------------------" << endl;
-    }*/
+        }
+        else if (opcionOrdenamiento == 2) {
 
-    /*Implementacion de iteradores*/
-    for (Lista<CContribuyente*>::Iterador it = lst->begin(); it != lst->end(); ++it) {
-        cout << "Nombre: " << (*it)->nombre << endl;
-        cout << "ID: " << (*it)->id << endl;
-        cout << "Ingresos: " << (*it)->ingresos << endl;
-        cout << "Monto de Venta: " << (*it)->montoVenta << endl;
-        cout << "---------------------------" << endl;
-    }
+            cout << "Árbol Binario de Contribuyentes (InOrden):" << endl;
+            cout << endl;
+            arb->enOrden();
+            cout << endl;
+        }
+        else {
+            cout << "Opción inválida." << endl;
+        }
+    } while (opcionOrdenamiento < 1 || opcionOrdenamiento > 2);
 }
 
 //Opcion 4
@@ -189,7 +201,7 @@ void MenuIndividuo::ordenarContribuyentes(Lista<CContribuyente*>* lst) const
         else {
             cout << "Opción inválida." << endl;
         }
-    } while (opcionOrdenamiento < 1 || opcionOrdenamiento > 2);    
+    } while (opcionOrdenamiento < 1 || opcionOrdenamiento > 2);
 }
 
 //Opcion 5
@@ -248,8 +260,8 @@ void MenuIndividuo::cargarDatosContribuyentes(Lista<CContribuyente*>* lst) const
         contribuyente->id = id;
         contribuyente->ingresos = ingresos;
         contribuyente->montoVenta = monto;
-        
-        lst->agregaPos(contribuyente,lon);
+
+        lst->agregaPos(contribuyente, lon);
         lon++;
     }
 }

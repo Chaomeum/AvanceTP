@@ -24,7 +24,7 @@ int main() {
 	cout << "Elija la opcion que desee ejecutar: " << endl;
 	cout << setw(30) << "1. Ingresar como individuo" << endl;
 	cout << setw(28) << "2. Ingresar como empresa" << endl;
-	cout << setw(12) << "3. Salir" << endl;	
+	cout << setw(12) << "3. Salir" << endl;
 	f.imprimeSimbolo(60, '-');
 	/*Validacion de la opcion ingresada*/
 	do {
@@ -53,16 +53,38 @@ int main() {
 	Menu* menu = nullptr;
 
 	/*Se crean las listas que gestionaran los datos de cada tipo de usuario*/
-	Lista<Empresa*>* lstEmpresa = new Lista<Empresa*> ;
-	Lista<CContribuyente*>* lstContribuyente = new Lista<CContribuyente*> ;
+	Lista<Empresa*>* lstEmpresa = new Lista<Empresa*>;
+	Lista<CContribuyente*>* lstContribuyente = new Lista<CContribuyente*>;
+
+	ArbolBB<CContribuyente*>* arbolContribuyentes = new ArbolBB<CContribuyente*>([](CContribuyente* c) {
+		cout << "Nombre: " << c->nombre << endl;
+		cout << "ID: " << c->id << endl;
+		cout << "Ingresos: " << c->ingresos << endl;
+		cout << "Monto de Venta: " << c->montoVenta << endl;
+		cout << "---------------------------" << endl;
+		}, 
+		[](CContribuyente* a, CContribuyente* b) -> int {
+			return a->id - b->id;
+		});
+
+	ArbolBB<Empresa*>* arbolEmpresa = new ArbolBB<Empresa*>([](Empresa* c) {
+		cout << "Nombre: " << c->nombre << endl;
+		cout << "ID: " << c->RUC << endl;
+		cout << "Ingresos: " << c->ingresos << endl;
+		cout << "Monto de Venta: " << c->montoVenta << endl;
+		cout << "---------------------------" << endl;
+		}, 
+		[](Empresa* a, Empresa* b) -> int {
+			return a->RUC - b->RUC;
+		});
 
 	if (opcion == 1) {
 		/*se pasa la lista Contribuyete como parametro en el constructor de menuIndividuo*/
-		menu = new MenuIndividuo(lstContribuyente);
+		menu = new MenuIndividuo(lstContribuyente, arbolContribuyentes);
 	}
 	else if (opcion == 2) {
 		/*se pasa la lista Empresa como parametro en el constructor de menuEmpresa*/
-		menu = new MenuEmpresa(lstEmpresa);
+		menu = new MenuEmpresa(lstEmpresa, arbolEmpresa);
 	}
 	else {
 		cout << "Salir del programa" << endl;
@@ -88,7 +110,7 @@ int main() {
 				continue; // Volver al principio del bucle
 			}
 
-			menu->opcionSeleccionada(operacion);	
+			menu->opcionSeleccionada(operacion);
 			cout << endl;
 		}
 	} while (operacion != 7);

@@ -2,13 +2,13 @@
 
 void MenuEmpresa::mostrarMenu() const
 {
-    FuncionesArch f;    
+    FuncionesArch f;
     f.imprimeSimbolo(58, '-');
     cout << setw(37) << "MENU EMPRESA" << endl;
     f.imprimeSimbolo(58, '-');
     cout << "1.- Agregar una nueva empresa." << endl;
     cout << "2.- Calcular impuestos para una empresa." << endl;
-    cout << "3.- Simular una cola a traves de un archivo" << endl; 
+    cout << "3.- Simular una cola a traves de un archivo" << endl;
     cout << "4.- Ver lista de empresas miembro." << endl;
     cout << "5.- Ordenar empresas por algún criterio." << endl;
     cout << "6.- Guardar datos en archivo." << endl;
@@ -22,16 +22,16 @@ void MenuEmpresa::opcionSeleccionada(int opcion) const
     f.imprimeSimbolo(58, '-');
     switch (opcion) {
     case 1:
-        agregarNuevaEmpresa(lst);
+        agregarNuevaEmpresa(lst, arb);
         break;
     case 2:
         calcularImpuestosEmpresa(lst);
         break;
     case 3:
         verEstadoImpuestosEmpresa(cola);
-        break;   
+        break;
     case 4:
-        mostrarEmpresas(lst);
+        mostrarEmpresas(lst, arb);
         break;
     case 5:
         ordenarEmpresas(lst);
@@ -43,14 +43,14 @@ void MenuEmpresa::opcionSeleccionada(int opcion) const
 }
 
 //Opcion 1
-void MenuEmpresa::agregarNuevaEmpresa(Lista<Empresa*>* lst) const
+void MenuEmpresa::agregarNuevaEmpresa(Lista<Empresa*>* lst, ArbolBB<Empresa*>* arb) const
 {
     cout << "Opcion 1: Agregar una nueva empresa" << endl;
     cout << endl;
     Empresa* empresa = new Empresa();
     cout << "Ingrese el nombre de la empresa: ";
     cin >> empresa->nombre;
-    
+
     cout << "Ingrese el RUC de la empresa: ";
     cin >> empresa->RUC;
 
@@ -86,6 +86,7 @@ void MenuEmpresa::agregarNuevaEmpresa(Lista<Empresa*>* lst) const
 
     if (!rucOcupada) {
         lst->agregaInicial(empresa);
+        arb->insertar(empresa);
         cout << "La empresa fue agregada con exito" << endl;
     }
     else {
@@ -98,7 +99,7 @@ void MenuEmpresa::agregarNuevaEmpresa(Lista<Empresa*>* lst) const
 void MenuEmpresa::calcularImpuestosEmpresa(Lista<Empresa*>* lst) const
 {
     cout << "Opcion 2: Calcular impuestos por empresa" << endl;
-    cout << endl; 
+    cout << endl;
     cout << "Ingrese el RUC de la empresa para calcular sus impuestos: ";
     int rucEmpresa;
     cin >> rucEmpresa;
@@ -155,7 +156,7 @@ void MenuEmpresa::verEstadoImpuestosEmpresa(Cola<Empresa*>* cola) const
         cout << "ERROR: No se pudo abrir el archivo ArchivoEmpresas.csv" << endl;
         exit(1);
     }
-    char* ptrNombre, * ptrCiudad, *ptrEstadoDeudor, car;
+    char* ptrNombre, * ptrCiudad, * ptrEstadoDeudor, car;
     int ruc;
     double ingresos, monto;
     FuncionesArch f;
@@ -196,8 +197,9 @@ void MenuEmpresa::verEstadoImpuestosEmpresa(Cola<Empresa*>* cola) const
 }
 
 //Opcion 4
-void MenuEmpresa::mostrarEmpresas(Lista<Empresa*>* lst) const
+void MenuEmpresa::mostrarEmpresas(Lista<Empresa*>* lst, ArbolBB<Empresa*>* arb) const
 {
+    int opcionOrdenamiento;
     cout << "Opcion 4: Mostrar empresas afiliadas." << endl;
     cout << endl;
     if (lst->esVacia()) {
@@ -208,32 +210,46 @@ void MenuEmpresa::mostrarEmpresas(Lista<Empresa*>* lst) const
     cout << "Lista de empresas afiliadas:" << endl;
     cout << "---------------------------" << endl;
 
-    /*for (int i = 0; i < lst->longitud(); i++) {
-        Empresa* empresa = lst->obtenerPos(i);
-        cout << "Nombre: " << empresa->nombre << endl;
-        cout << "RUC: " << empresa->RUC << endl;
-        cout << "Ingresos: " << empresa->ingresos << endl;
-        cout << "Monto de Venta: " << empresa->montoVenta << endl;
-        cout << "Ciudad: " << empresa->ciudad << endl;
-        cout << "Estado deudor: " << empresa->estadoDeudor << endl;
-        cout << "---------------------------" << endl;
-    }*/
+    do {
+        cout << "¿Por que criterio desea mostrar a los contribuyentes?" << endl;
+        cout << "1.- Mediante listas." << endl;
+        cout << "2.- Mediante Arbol Binario." << endl << endl;
+        cin >> opcionOrdenamiento;
+        if (opcionOrdenamiento == 1) {
 
-    /*Implementacion de iteradores*/
-    for (Lista<Empresa*>::Iterador it = lst->begin(); it != lst->end(); ++it) {
-        cout << "Nombre: " << (*it)->nombre << endl;
-        cout << "RUC: " << (*it)->RUC << endl;
-        cout << "Ingresos: " << (*it)->ingresos << endl;
-        cout << "Monto de Venta: " << (*it)->montoVenta << endl;
-        cout << "Ciudad: " << (*it)->ciudad << endl;
-        cout << "Estado deudor: " << (*it)->estadoDeudor << endl;
-        cout << "---------------------------" << endl;
-    }
+
+            cout << "Lista de empresas afiliadas:" << endl;
+            cout << "---------------------------" << endl;
+
+
+            /*Implementacion de iteradores*/
+            for (Lista<Empresa*>::Iterador it = lst->begin(); it != lst->end(); ++it) {
+                cout << "Nombre: " << (*it)->nombre << endl;
+                cout << "RUC: " << (*it)->RUC << endl;
+                cout << "Ingresos: " << (*it)->ingresos << endl;
+                cout << "Monto de Venta: " << (*it)->montoVenta << endl;
+                cout << "Ciudad: " << (*it)->ciudad << endl;
+                cout << "Estado deudor: " << (*it)->estadoDeudor << endl;
+                cout << "---------------------------" << endl;
+            }
+
+        }
+        else if (opcionOrdenamiento == 2) {
+
+            cout << "Árbol Binario de Empresas (InOrden):" << endl;
+            cout << endl;
+            arb->enOrden();
+            cout << endl;
+        }
+        else {
+            cout << "Opción inválida." << endl;
+        }
+    } while (opcionOrdenamiento < 1 || opcionOrdenamiento > 2);
 }
 
 //Opcion 5
 void MenuEmpresa::ordenarEmpresas(Lista<Empresa*>* lst) const
-{   
+{
     int opcionOrdenamiento;
     cout << "Opcion 5: Ordenar Empresas." << endl;
     cout << endl;
@@ -252,8 +268,8 @@ void MenuEmpresa::ordenarEmpresas(Lista<Empresa*>* lst) const
         }
         else {
             cout << "Opcion no valida." << endl;
-        }        
-    } while (opcionOrdenamiento < 1 || opcionOrdenamiento > 2);   
+        }
+    } while (opcionOrdenamiento < 1 || opcionOrdenamiento > 2);
 }
 
 //Opcion 6

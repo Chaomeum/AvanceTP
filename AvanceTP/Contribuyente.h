@@ -3,7 +3,9 @@
 #include <vector>
 #include <string>
 #include <sstream>
+#include <ctime>
 using namespace std;
+
 class CContribuyente
 {
 public:
@@ -19,18 +21,25 @@ public:
         this->montoVenta = 0.0;    
     }
 
-   /* void setNombre(string nombre) { this->nombre = nombre; }
-    string getNombre() { return nombre;}
-    void setIdentificacion(int id) { this->id = id; }
-    int getIdentificacion() { return id; }
+    /*Generador Dataset para Contribuyentes*/
+    CContribuyente generarContribuyente(int id) {
+        CContribuyente contribuyente;
+        // El id se asignara de acuerdo al orden en que se genera el contribuyente
+        contribuyente.id = id;
+        // Se genera el nombre general del contribuyente
+        contribuyente.nombre = "Contribuyente_" + intToString(id);
+        // Los ingresos de los contribuyentes varia de 5000 a 25000 soles
+        contribuyente.ingresos = rand() % 15000 + 5000; 
+        // El monto de venta de los contribuyentes varia de 100 a 5000 soles
+        contribuyente.montoVenta = rand() % 4900 + 100;
+        return contribuyente;
+    }
 
-
-    void setIngresos(double ingresos) { this->ingresos = ingresos; }
-    double getIngresos()  { return ingresos; }
-
-    void setMontoVenta(double montoVenta) { this->montoVenta = montoVenta; }
-    double getMontoVenta()  { return montoVenta; }
-    */
+    string intToString(int num) {
+        stringstream ss;
+        ss << num;
+        return ss.str();
+    }
 
     string ToString() {
         stringstream ss;
