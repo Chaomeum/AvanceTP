@@ -56,6 +56,11 @@ int main() {
 	Lista<Empresa*>* lstEmpresa = new Lista<Empresa*>;
 	Lista<CContribuyente*>* lstContribuyente = new Lista<CContribuyente*>;
 
+	/*Se crean las tablas hash que gestionaran los datos de cada tipo de usuario*/
+	HashTabla* hashEmpresa = new HashTabla;
+	HashTabla* hashContribuyente = new HashTabla;
+
+	/*Se crean los arboles binarios que gestionaran los datos de cada tipo de usuario*/
 	ArbolBB<CContribuyente*>* arbolContribuyentes = new ArbolBB<CContribuyente*>([](CContribuyente* c) {
 		cout << "Nombre: " << c->nombre << endl;
 		cout << "ID: " << c->id << endl;
@@ -78,10 +83,13 @@ int main() {
 			return a->RUC - b->RUC;
 		});
 
+	
+
 	if (opcion == 1) {
 		/*se pasa la lista Contribuyete como parametro en el constructor de menuIndividuo*/
-		menu = new MenuIndividuo(lstContribuyente, arbolContribuyentes);
+		menu = new MenuIndividuo(lstContribuyente, hashContribuyente, arbolContribuyentes);
 	}
+
 	else if (opcion == 2) {
 		/*se pasa la lista Empresa como parametro en el constructor de menuEmpresa*/
 		menu = new MenuEmpresa(lstEmpresa, arbolEmpresa);
