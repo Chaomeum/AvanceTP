@@ -67,7 +67,7 @@ void MenuIndividuo::agregarNuevoContribuyente(Lista<CContribuyente*>* lst, HashT
         if (!idOcupada) {
             lst->agregaInicial(contribuyente);
             arb->insertar(contribuyente);
-            ht->insert(contribuyente);
+            ht->insertC(contribuyente);
             cout << "El contribuyente " << contribuyente->nombre << " fue agregado con exito." << endl;
         }
         else {

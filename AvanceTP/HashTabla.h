@@ -11,8 +11,14 @@ private:
     std::list<T*> table[300]; // Tabla hash de listas de punteros a T
 
 public:
-    void insert(T* elemento) {
+    //Para contribuyentes
+    void insertC(T* elemento) {
         int index = funcionHash(elemento->id); // Usar el id para el hash
+        table[index].push_back(elemento);
+    }
+    //Para empresas
+    void insertE(T* elemento) {
+        int index = funcionHash(elemento->RUC); // Usar el RUC para el hash
         table[index].push_back(elemento);
     }
     //Para contribuyentes

@@ -50,8 +50,8 @@ void MenuEmpresa::agregarNuevaEmpresa(Lista<Empresa*>* lst, HashTabla<Empresa>* 
     
     srand(time(0));
     Empresa e;
-    /*Se generan datos para 100 a 400 empresas*/
-    int numEmpresas = rand() % 300 + 100;
+    /*Se generan datos para 50 a 300 empresas*/
+    int numEmpresas = rand() % 250 + 50;
     for (int i = 0; i < numEmpresas; ++i) {
         Empresa* empresa = new Empresa(e.generarEmpresa(i + 1));
         bool rucOcupada = false;
@@ -66,6 +66,7 @@ void MenuEmpresa::agregarNuevaEmpresa(Lista<Empresa*>* lst, HashTabla<Empresa>* 
 
         if (!rucOcupada) {
             lst->agregaInicial(empresa);
+            ht->insertE(empresa);
             arb->insertar(empresa);
             /*ht->insert(empresa);*/
             cout << "El contribuyente " << empresa->nombre << " fue agregado con exito." << endl;
@@ -205,7 +206,8 @@ void MenuEmpresa::mostrarEmpresas(Lista<Empresa*>* lst, HashTabla<Empresa>* ht, 
     do {
         cout << "¿Por que criterio desea mostrar a los contribuyentes?" << endl;
         cout << "1.- Mediante listas." << endl;
-        cout << "2.- Mediante Arbol Binario." << endl << endl;
+        cout << "2.- Mediante Hash Table." << endl;
+        cout << "3.- Mediante Arboles Binarios." << endl << endl;
         cin >> opcionOrdenamiento;
         if (opcionOrdenamiento == 1) {
 
@@ -241,7 +243,7 @@ void MenuEmpresa::mostrarEmpresas(Lista<Empresa*>* lst, HashTabla<Empresa>* ht, 
         else {
             cout << "Opción inválida." << endl;
         }
-    } while (opcionOrdenamiento < 1 || opcionOrdenamiento > 2);
+    } while (opcionOrdenamiento < 1 || opcionOrdenamiento > 3);
 }
 
 //Opcion 5
