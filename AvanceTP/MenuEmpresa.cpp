@@ -6,10 +6,10 @@ void MenuEmpresa::mostrarMenu() const
     f.imprimeSimbolo(58, '-');
     cout << setw(37) << "MENU EMPRESA" << endl;
     f.imprimeSimbolo(58, '-');
-    cout << "1.- Agregar una nueva empresa." << endl;
+    cout << "1.- Crear informacion de empresas." << endl;
     cout << "2.- Calcular impuestos para una empresa." << endl;
     cout << "3.- Simular una cola a traves de un archivo" << endl;
-    cout << "4.- Ver lista de empresas miembro." << endl;
+    cout << "4.- Mostrar informacion de empresas." << endl;
     cout << "5.- Ordenar empresas por algún criterio." << endl;
     cout << "6.- Guardar datos en archivo." << endl;
     cout << "7.- Salir del programa." << endl;
@@ -22,16 +22,16 @@ void MenuEmpresa::opcionSeleccionada(int opcion) const
     f.imprimeSimbolo(58, '-');
     switch (opcion) {
     case 1:
-        agregarNuevaEmpresa(lst, arb);
+        agregarNuevaEmpresa(lst, ht, arb);
         break;
     case 2:
-        calcularImpuestosEmpresa(lst);
+        calcularImpuestosEmpresa(lst, ht);
         break;
     case 3:
         verEstadoImpuestosEmpresa(cola);
         break;
     case 4:
-        mostrarEmpresas(lst, arb);
+        mostrarEmpresas(lst, ht, arb);
         break;
     case 5:
         ordenarEmpresas(lst);
@@ -43,85 +43,77 @@ void MenuEmpresa::opcionSeleccionada(int opcion) const
 }
 
 //Opcion 1
-void MenuEmpresa::agregarNuevaEmpresa(Lista<Empresa*>* lst, ArbolBB<Empresa*>* arb) const
+void MenuEmpresa::agregarNuevaEmpresa(Lista<Empresa*>* lst, HashTabla<Empresa>* ht, ArbolBB<Empresa*>* arb) const
 {
-    cout << "Opcion 1: Agregar una nueva empresa" << endl;
+    cout << "Opcion 1: Crear informacion de empresas" << endl;
     cout << endl;
-    Empresa* empresa = new Empresa();
-    cout << "Ingrese el nombre de la empresa: ";
-    cin >> empresa->nombre;
+    
+    srand(time(0));
+    Empresa e;
+    /*Se generan datos para 100 a 400 empresas*/
+    int numEmpresas = rand() % 300 + 100;
+    for (int i = 0; i < numEmpresas; ++i) {
+        Empresa* empresa = new Empresa(e.generarEmpresa(i + 1));
+        bool rucOcupada = false;
 
-    cout << "Ingrese el RUC de la empresa: ";
-    cin >> empresa->RUC;
-
-    cout << "Ingresa los ingresos de la empresa: ";
-    cin >> empresa->ingresos;
-
-    cout << "Ingresa el monto de venta de la empresa: ";
-    cin >> empresa->montoVenta;
-
-    cout << "Ingresa el nombre de la ciudad de la empresa: ";
-    cin >> empresa->ciudad;
-
-    cout << "Ingresa el estado deudor de la empresa: ";
-    cin >> empresa->estadoDeudor;
-
-    bool rucOcupada = false;
-    /*for (int i = 0; i < lst->longitud(); i++)
-    {
-        Empresa* b = lst->obtenerPos(i);
-        if (b->RUC == empresa->RUC) {
-            rucOcupada = true;
-            break;
+        // Implementación de iteradores
+        for (Lista<Empresa*>::Iterador it = lst->begin(); it != lst->end(); ++it) {
+            if ((*it)->RUC == empresa->RUC) {
+                rucOcupada = true;
+                break;
+            }
         }
-    }*/
 
-    /*Implementacion de iteradores*/
-    for (Lista<Empresa*>::Iterador it = lst->begin(); it != lst->end(); ++it) {
-        if ((*it)->RUC == empresa->RUC) {
-            rucOcupada = true;
-            break;
+        if (!rucOcupada) {
+            lst->agregaInicial(empresa);
+            arb->insertar(empresa);
+            /*ht->insert(empresa);*/
+            cout << "El contribuyente " << empresa->nombre << " fue agregado con exito." << endl;
         }
-    }
-
-    if (!rucOcupada) {
-        lst->agregaInicial(empresa);
-        arb->insertar(empresa);
-        cout << "La empresa fue agregada con exito" << endl;
-    }
-    else {
-        cout << "La RUC ingresada ya existe, no se pudo agregar la empresa" << endl;
-        delete empresa;
+        else {
+            cout << "Lo sentimos, la RUC " << empresa->RUC << " ya esta ocupada." << endl;
+            delete empresa;
+        }
     }
 }
 
 //Opcion 2
-void MenuEmpresa::calcularImpuestosEmpresa(Lista<Empresa*>* lst) const
+void MenuEmpresa::calcularImpuestosEmpresa(Lista<Empresa*>* lst, HashTabla<Empresa>* ht) const
 {
     cout << "Opcion 2: Calcular impuestos por empresa" << endl;
     cout << endl;
     cout << "Ingrese el RUC de la empresa para calcular sus impuestos: ";
     int rucEmpresa;
     cin >> rucEmpresa;
-
+    int opcionBusqueda;
+    
     Empresa* empresa = nullptr;
 
-    /*for (int i = 0; i < lst->longitud(); i++)
-    {
-        Empresa* e = lst->obtenerPos(i);
-        if (e->RUC == rucEmpresa) {
-            empresa = e;
-            break;
+   
+    do {
+        cout << "¿Por que criterio desea buscar a la empresa?" << endl;
+        cout << "1.- Mediante Listas." << endl;
+        cout << "2.- Mediante Tablas de Hash." << endl;
+        cin >> opcionBusqueda;
+        if (opcionBusqueda == 1) {
+            /*Implementacion de iteradores*/
+            for (Lista<Empresa*>::Iterador it = lst->begin(); it != lst->end(); ++it) {
+                if ((*it)->RUC == rucEmpresa) {
+                    empresa = *it;
+                    break;
+                }
+            }
         }
-    }*/
+        else if (opcionBusqueda == 2) {
+            if (ht->containsE(rucEmpresa)) {
+                empresa = ht->getE(rucEmpresa);
+            }
+        }
+        else {
+            cout << "Opción inválida." << endl;
+        }
+    } while (opcionBusqueda < 1 || opcionBusqueda > 2);
 
-    /*Implementacion de iteradores*/
-    for (Lista<Empresa*>::Iterador it = lst->begin(); it != lst->end(); ++it) {
-        if ((*it)->RUC == rucEmpresa) {
-            empresa = *it;
-            break;
-        }
-    }
 
     if (empresa != nullptr) {
         cout << "Contribuyente detectado:" << endl;
@@ -197,7 +189,7 @@ void MenuEmpresa::verEstadoImpuestosEmpresa(Cola<Empresa*>* cola) const
 }
 
 //Opcion 4
-void MenuEmpresa::mostrarEmpresas(Lista<Empresa*>* lst, ArbolBB<Empresa*>* arb) const
+void MenuEmpresa::mostrarEmpresas(Lista<Empresa*>* lst, HashTabla<Empresa>* ht, ArbolBB<Empresa*>* arb) const
 {
     int opcionOrdenamiento;
     cout << "Opcion 4: Mostrar empresas afiliadas." << endl;

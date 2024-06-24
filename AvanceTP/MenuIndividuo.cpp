@@ -43,9 +43,9 @@ void MenuIndividuo::opcionSeleccionada(int opcion) const
 }
 
 //Opcion 1
-void MenuIndividuo::agregarNuevoContribuyente(Lista<CContribuyente*>* lst, HashTabla* ht, ArbolBB<CContribuyente*>* arb) const
+void MenuIndividuo::agregarNuevoContribuyente(Lista<CContribuyente*>* lst, HashTabla<CContribuyente>* ht, ArbolBB<CContribuyente*>* arb) const
 {
-    cout << "Opcion 1: Agregar un nuevo contribuyente" << endl;
+    cout << "Opcion 1: Crear informacion de contribuyentes" << endl;
     cout << endl;
 
     srand(time(0));
@@ -78,7 +78,7 @@ void MenuIndividuo::agregarNuevoContribuyente(Lista<CContribuyente*>* lst, HashT
 }
 
 //Opcion 2
-void MenuIndividuo::calcularImpuestosContribuyente(Lista<CContribuyente*>* lst , HashTabla* ht) const
+void MenuIndividuo::calcularImpuestosContribuyente(Lista<CContribuyente*>* lst , HashTabla<CContribuyente>* ht) const
 {
     cout << "Opcion 2: Calcular impuestos por contribuyente" << endl;
     cout << endl;
@@ -105,8 +105,8 @@ void MenuIndividuo::calcularImpuestosContribuyente(Lista<CContribuyente*>* lst ,
             }
         }
         else if (opcionBusqueda == 2){
-            if (ht->contains(idContribuyente)) {
-                contribuyente = ht->get(idContribuyente);
+            if (ht->containsC(idContribuyente)) {
+                contribuyente = ht->getC(idContribuyente);
             }
         }
         else {
@@ -137,10 +137,10 @@ void MenuIndividuo::calcularImpuestosContribuyente(Lista<CContribuyente*>* lst ,
 }
 
 //Opcion 3
-void MenuIndividuo::mostrarContribuyentes(Lista<CContribuyente*>* lst, HashTabla* ht, ArbolBB<CContribuyente*>* arb) const
+void MenuIndividuo::mostrarContribuyentes(Lista<CContribuyente*>* lst, HashTabla<CContribuyente>* ht, ArbolBB<CContribuyente*>* arb) const
 {
     int opcionOrdenamiento;
-    cout << "Opcion 3: Mostrar contribuyentes." << endl;
+    cout << "Opcion 3: Mostrar informacion de contribuyentes." << endl;
     cout << endl;
     if (lst->esVacia()) {
         cout << "No hay contribuyentes para mostrar." << endl;
@@ -217,7 +217,7 @@ void MenuIndividuo::ordenarContribuyentes(Lista<CContribuyente*>* lst) const
         else {
             cout << "Opción inválida." << endl;
         }
-    } while (opcionOrdenamiento < 1 || opcionOrdenamiento > 2);
+    } while (opcionOrdenamiento < 1 || opcionOrdenamiento > 4);
 }
 
 //Opcion 5
@@ -236,13 +236,6 @@ void MenuIndividuo::guardarDatosContribuyentes(Lista<CContribuyente*>* lst) cons
     arch << "Nombre" << setw(13) << "Numero ID" << setw(13) << "Ingresos" << setw(15) << "Monto Venta" << endl;
     for (int i = 0; i < 50; i++) arch << "-";
     arch << endl;
-
-    /*for (int i = 0; i < lst->longitud(); i++)
-    {
-        CContribuyente* e = lst->obtenerPos(i);
-        arch << left << setw(10) << e->nombre << right << fixed << setprecision(2) << setw(7) << e->id << setw(15)
-            << e->ingresos << setw(13) << e->montoVenta << endl;
-    }*/
 
     /* Implementacion de iteradores */
     for (Lista<CContribuyente*>::Iterador it = lst->begin(); it != lst->end(); ++it) {

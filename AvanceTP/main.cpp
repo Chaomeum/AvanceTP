@@ -57,8 +57,8 @@ int main() {
 	Lista<CContribuyente*>* lstContribuyente = new Lista<CContribuyente*>;
 
 	/*Se crean las tablas hash que gestionaran los datos de cada tipo de usuario*/
-	HashTabla* hashEmpresa = new HashTabla;
-	HashTabla* hashContribuyente = new HashTabla;
+	HashTabla<CContribuyente>* hashContribuyente = new HashTabla<CContribuyente>;
+	HashTabla<Empresa>* hashEmpresa = new HashTabla<Empresa>;
 
 	/*Se crean los arboles binarios que gestionaran los datos de cada tipo de usuario*/
 	ArbolBB<CContribuyente*>* arbolContribuyentes = new ArbolBB<CContribuyente*>([](CContribuyente* c) {
@@ -92,7 +92,7 @@ int main() {
 
 	else if (opcion == 2) {
 		/*se pasa la lista Empresa como parametro en el constructor de menuEmpresa*/
-		menu = new MenuEmpresa(lstEmpresa, arbolEmpresa);
+		menu = new MenuEmpresa(lstEmpresa, hashEmpresa, arbolEmpresa);
 	}
 	else {
 		cout << "Salir del programa" << endl;
