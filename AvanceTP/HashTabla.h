@@ -58,11 +58,21 @@ public:
     }
 
 
-    void displayTable() {
+    void displayTableC() {
         for (int i = 0; i < 300; i++) {
             std::cout << "Index " << i << ": ";
             for (auto it = table[i].begin(); it != table[i].end(); ++it) {
                 std::cout << (*it)->nombre << " (" << (*it)->id << ") -> ";
+            }
+            std::cout << std::endl;
+        }
+    }
+
+    void displayTableE() {
+        for (int i = 0; i < 300; i++) {
+            std::cout << "Index " << i << ": ";
+            for (auto it = table[i].begin(); it != table[i].end(); ++it) {
+                std::cout << (*it)->nombre << " (" << (*it)->RUC << ") -> ";
             }
             std::cout << std::endl;
         }

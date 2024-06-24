@@ -169,7 +169,7 @@ void MenuIndividuo::mostrarContribuyentes(Lista<CContribuyente*>* lst, HashTabla
         else if (opcionOrdenamiento == 2) {
             cout << "Tabla de Hash de Contribuyentes:" << endl;
             cout << "---------------------------" << endl;
-            ht->displayTable();
+            ht->displayTableC();
             cout << endl;
         }
         else if (opcionOrdenamiento == 3) {

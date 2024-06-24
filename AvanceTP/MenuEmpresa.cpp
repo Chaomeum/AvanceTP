@@ -227,7 +227,12 @@ void MenuEmpresa::mostrarEmpresas(Lista<Empresa*>* lst, HashTabla<Empresa>* ht, 
 
         }
         else if (opcionOrdenamiento == 2) {
-
+            cout << "Tabla de Hash de Empresas:" << endl;
+            cout << "---------------------------" << endl;
+            ht->displayTableE();
+            cout << endl;
+        }
+        else if (opcionOrdenamiento == 3) {
             cout << "Árbol Binario de Empresas (InOrden):" << endl;
             cout << endl;
             arb->enOrden();
