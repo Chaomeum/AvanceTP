@@ -142,6 +142,7 @@
     <ClInclude Include="Contribuyente.h" />
     <ClInclude Include="Empresa.h" />
     <ClInclude Include="FuncionesArch.h" />
+    <ClInclude Include="Grafos.hpp" />
     <ClInclude Include="HashTabla.h" />
     <ClInclude Include="Impuesto.h" />
     <ClInclude Include="lista.hpp" />

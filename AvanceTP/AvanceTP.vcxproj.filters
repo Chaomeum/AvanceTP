@@ -77,5 +77,8 @@
     <ClInclude Include="ArbolBinario.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Grafos.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

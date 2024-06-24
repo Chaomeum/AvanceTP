@@ -26,7 +26,7 @@ public:
 
 private:
     void agregarNuevoContribuyente(Lista<CContribuyente*>* lst, HashTabla* ht, ArbolBB<CContribuyente*>* arb) const;    //Opcion 1
-    void calcularImpuestosContribuyente(Lista<CContribuyente*>* lst) const;                                             //Opcion 2
+    void calcularImpuestosContribuyente(Lista<CContribuyente*>* lst, HashTabla* ht) const;                              //Opcion 2
     void mostrarContribuyentes(Lista<CContribuyente*>* lst, HashTabla* ht, ArbolBB<CContribuyente*>* arb) const;        //Opcion 3
     void ordenarContribuyentes(Lista<CContribuyente*>* lst) const;                                                      //Opcion 4
     void guardarDatosContribuyentes(Lista<CContribuyente*>* lst) const;                                                 //Opcion 5

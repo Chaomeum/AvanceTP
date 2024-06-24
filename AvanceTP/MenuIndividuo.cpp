@@ -6,9 +6,9 @@ void MenuIndividuo::mostrarMenu() const
     f.imprimeSimbolo(46, '-');
     cout << setw(31) << "MENU INDIVIDUO" << endl;
     f.imprimeSimbolo(46, '-');
-    cout << "1.- Agregar un nuevo contribuyente." << endl;
+    cout << "1.- Crear informacion de contribuyentes." << endl;
     cout << "2.- Calcular impuestos para un contribuyente." << endl;
-    cout << "3.- Ver lista de contribuyentes." << endl;
+    cout << "3.- Mostrar informacion de contribuyentes." << endl;
     cout << "4.- Ordenar contribuyentes por algún criterio." << endl;
     cout << "5.- Guardar datos en archivo." << endl;
     cout << "6.- Cargar datos desde archivo." << endl;
@@ -25,7 +25,7 @@ void MenuIndividuo::opcionSeleccionada(int opcion) const
         agregarNuevoContribuyente(lst, ht, arb);
         break;
     case 2:
-        calcularImpuestosContribuyente(lst);
+        calcularImpuestosContribuyente(lst, ht);
         break;
     case 3:
         mostrarContribuyentes(lst, ht, arb);
@@ -78,23 +78,42 @@ void MenuIndividuo::agregarNuevoContribuyente(Lista<CContribuyente*>* lst, HashT
 }
 
 //Opcion 2
-void MenuIndividuo::calcularImpuestosContribuyente(Lista<CContribuyente*>* lst) const
+void MenuIndividuo::calcularImpuestosContribuyente(Lista<CContribuyente*>* lst , HashTabla* ht) const
 {
     cout << "Opcion 2: Calcular impuestos por contribuyente" << endl;
     cout << endl;
     cout << "Ingrese el ID del contribuyente para calcular sus impuestos: ";
     int idContribuyente;
     cin >> idContribuyente;
+    int opcionBusqueda;
 
     CContribuyente* contribuyente = nullptr;
 
-    /*Implementacion de iteradores*/
-    for (Lista<CContribuyente*>::Iterador it = lst->begin(); it != lst->end(); ++it) {
-        if ((*it)->id == idContribuyente) {
-            contribuyente = *it;
-            break;
+
+    do {
+        cout << "¿Por que criterio desea buscar al contribuyente?" << endl;
+        cout << "1.- Mediante Listas." << endl;
+        cout << "2.- Mediante Tablas de Hash." << endl;
+        cin >> opcionBusqueda;
+        if (opcionBusqueda == 1) {
+            /*Implementacion de iteradores*/
+            for (Lista<CContribuyente*>::Iterador it = lst->begin(); it != lst->end(); ++it) {
+                if ((*it)->id == idContribuyente) {
+                    contribuyente = *it;
+                    break;
+                }
+            }
         }
-    }
+        else if (opcionBusqueda == 2){
+            if (ht->contains(idContribuyente)) {
+                contribuyente = ht->get(idContribuyente);
+            }
+        }
+        else {
+            cout << "Opción inválida." << endl;
+        }
+    } while (opcionBusqueda < 1 || opcionBusqueda > 2);
+   
 
     if (contribuyente != nullptr) {
         cout << "Contribuyente detectado:" << endl;
@@ -174,16 +193,26 @@ void MenuIndividuo::ordenarContribuyentes(Lista<CContribuyente*>* lst) const
     cout << endl;
     do {
         cout << "¿Por que criterio desea ordenar a los contribuyentes?" << endl;
-        cout << "1.- Por ingresos." << endl;
-        cout << "2.- Por monto de venta." << endl << endl;
+        cout << "1.- Por ingresos.(Heap Sort)" << endl;
+        cout << "2.- Por ingresos.(Quick Sort)" << endl;
+        cout << "3.- Por monto de venta. (Heap Sort)" << endl;
+        cout << "4.- Por monto de venta. (Quick Sort)" << endl << endl;
         cin >> opcionOrdenamiento;
         if (opcionOrdenamiento == 1) {
-            lst->sortShellPorIngresos();
-            cout << "Contribuyentes ordenados por cantidad de ingresos." << endl;
+            lst->sortHeapPorIngresos();
+            cout << "Contribuyentes ordenados por cantidad de ingresos. (HeapSort)" << endl;
         }
         else if (opcionOrdenamiento == 2) {
-            lst->sortShellPorVenta();
-            cout << "Contribuyentes ordenados por monto de venta." << endl;
+            lst->quickSortIngresos();
+            cout << "Contribuyentes ordenados por cantidad de ingresos. (QuickSort)" << endl;
+        }
+        else if (opcionOrdenamiento == 3) {
+            lst->sortHeapPorVentas();
+            cout << "Contribuyentes ordenados por monto de venta. (HeapSort)" << endl;
+        }
+        else if (opcionOrdenamiento == 4) {
+            lst->quickSortMontoVenta();
+            cout << "Contribuyentes ordenados por monto de venta. (QuickSort)" << endl;
         }
         else {
             cout << "Opción inválida." << endl;

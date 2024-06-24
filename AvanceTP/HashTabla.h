@@ -25,6 +25,16 @@ public:
         return false;
     }
 
+    CContribuyente* get(int id) {
+        int index = funcionHash(id);
+        for (auto it = table[index].begin(); it != table[index].end(); ++it) {
+            if ((*it)->id == id) {
+                return *it;
+            }
+        }
+        return nullptr; // No se encontró el contribuyente
+    }
+
     void displayTable() {
         for (int i = 0; i < 300; i++) {
             std::cout << "Index " << i << ": ";
@@ -37,7 +47,9 @@ public:
 
 private:
     int funcionHash(int id) {
-        return id % 300; // 300: tamaño de la tabla hash
+        const unsigned int A = 2654435769u; // Constante de multiplicación sugerida por Knuth
+        unsigned int hash = id * A;
+        return hash % 300; // 300: tamaño de la tabla hash       
     }
 };
 

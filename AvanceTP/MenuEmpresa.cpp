@@ -259,11 +259,11 @@ void MenuEmpresa::ordenarEmpresas(Lista<Empresa*>* lst) const
         cout << "2.- Por monto de venta." << endl << endl;
         cin >> opcionOrdenamiento;
         if (opcionOrdenamiento == 1) {
-            lst->sortBubblePorIngresos();
+            lst->sortMergePorIngresos();
             cout << "Empresas ordenados por cantidad de ingresos." << endl;
         }
         else if (opcionOrdenamiento == 2) {
-            lst->sortBubblePorVenta();
+            lst->sortMergePorVentas();
             cout << "Empresas ordenadas por monto de venta." << endl;
         }
         else {
